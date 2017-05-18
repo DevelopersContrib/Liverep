@@ -1,0 +1,71 @@
+/* Red Style Css */
+.msg-sheet-header{
+	background-color: #c0392b;
+}
+.menu-header-btn{
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	color: #fff;
+	font-size: 15px;
+	line-height: normal;
+	margin: 8px 20px 0;
+	padding: 5px 10px;
+}
+.msg-unread-counter{
+	background-color: #0074b0;
+	color: #fff;
+	left: 15px;
+	top: 3px;
+}
+.close-header-btn, .minimize-header-btn {
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	color: #fff;
+	font-size: 15px;
+	line-height: normal;
+	margin: 8px 5px 0;
+	padding: 5px 10px;
+}
+.msg-sheet-header-generic-title{
+	color: #fff;
+}
+.msg-sheet-header-generic-title{
+	color: #fff;
+}
+.msg-launcher-button{
+	background-color: #c0392b;
+	border-color: #8E2B20;
+}
+.msg-launcher-button{
+	background-image: url("https://d2qcctj8epnr7y.cloudfront.net/images/2013/icon-50x50-contrib-support-2.png");
+}
+/* BUtton style */
+.msg-login-btn-success {
+	color: #fff;
+	background-color: #d9534f;
+	border-color: #d43f3a;
+}
+.msg-login-btn-success:focus {
+	color: #fff;
+	background-color: #c9302c;
+	border-color: #761c19;
+}
+.msg-login-btn-success:hover {
+	color: #fff;
+	background-color: #c9302c;
+	border-color: #ac2925;
+}
+.msg-login-btn-success:active {
+	color: #fff;
+	background-color: #c9302c;
+	border-color: #ac2925;
+}
+.msg-login-btn-success:active:hover,
+.msg-login-btn-success:active:focus,{
+	color: #fff;
+	background-color: #ac2925;
+	border-color: #761c19;
+}
+.msg-login-btn-success:active{
+	background-image: none;
+}

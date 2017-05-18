@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contrib Messaging App</title>
+  <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+
+<div class="msg-launcher-container">
+			<div class="msg-launcher msg-launcher-enable">
+				<!-- Launcher Icon -->
+				<div class="msg-launcher-button">
+					<div class="msg-launcher-initials">
+					</div>
+				</div>
+				
+			</div>
+			<div class="msg-messenger msg-messenger-active">
+				<div class="msg-conversation-sheet">
+					<div class="msg-sheet-header">
+						<a href="javascript:;" class="menu-header-btn">
+							<i class="fa fa-align-justify"></i>
+							<!-- if there new message -->
+							<span class="msg-unread-counter msg-unread-counter-active">1</span>
+						</a>
+						<!-- If New Conversation -->
+						<div class="msg-sheet-header-generic-title ">
+							New Conversation
+						</div>
+						<!-- Already had conversation -->
+						<div class="msg-sheet-header-title-container hide">
+							<b class="msg-sheet-header-title msg-sheet-header-with-presence">
+								Skyler
+							</b>
+							<div class="msg-last-active">
+								<span class="relative-time-in-text">Last active 4 hours ago</span>
+							</div>
+						</div>
+						<a href="javascript:;" class="close-header-btn">
+							<i class="fa fa-times"></i>
+						</a>
+						<a href="javascript:;" class="minimize-header-btn">
+							<i class="fa fa-minus"></i>
+						</a>
+					</div>
+					<div class="msg-sheet-body"></div>
+					
+					
+					
+					<div class="msg-sheet-content">
+						<div class="msg-sheet-content-container">
+							
+							<ul class="pages">
+						    
+						    <li class="chat-page">
+						      <div class="chatArea">
+						        <div class="msg-conversation-parts-container ">
+									<div class="msg-conversation-parts messages">
+										
+									</div>
+							      </div>
+							     <div class="msg-composer-container ">
+									<form class="msg-composer">
+										<div class="msg-composer-textarea-container">
+											<div class="msg-composer-textarea">
+												<pre><span></span><br></pre>
+												<textarea class="inputMessage" placeholder="Write a reply…"></textarea>
+											</div>
+										</div>
+										<div class="msg-powered-by">
+											<a href="">
+												<span>We run on <u>Intercom</u></span>
+											</a>
+										</div>
+									</form>
+					            </div>    
+							      
+						      </div>
+						    
+						    </li>
+						    
+						    
+						    
+						    <li class="login-page">
+						      <div class="msg-app-profile-container ">
+								<div class="msg-app-profile">
+									    <p><input type="text" class="usernameInput"  name="login" value="" placeholder="Username or Email"></p>
+								        <p><input type="password" name="password" value="" placeholder="Password"></p>
+								        <p class="submit"><input type="submit" name="commit" value="Login"></p>
+     							</div>

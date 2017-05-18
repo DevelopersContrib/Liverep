@@ -1,0 +1,82 @@
+/* Lavander Style Css */
+.msg-sheet-header{
+	background-color: #B378D3;
+}
+.menu-header-btn{
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	color: #fff;
+	font-size: 15px;
+	line-height: normal;
+	margin: 8px 20px 0;
+	padding: 5px 10px;
+}
+.msg-unread-counter{
+	background-color: #0074b0;
+	color: #fff;
+	left: 15px;
+	top: 3px;
+}
+.close-header-btn, .minimize-header-btn {
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	color: #fff;
+	font-size: 15px;
+	line-height: normal;
+	margin: 8px 5px 0;
+	padding: 5px 10px;
+}
+.msg-sheet-header-generic-title{
+	color: #fff;
+}
+.msg-sheet-header-generic-title{
+	color: #fff;
+}
+.msg-launcher-button{
+	background-color: #b378d3;
+	border-color: #913EBD;
+}
+.msg-launcher-button{
+	background-image: url("https://d2qcctj8epnr7y.cloudfront.net/images/2013/icon-50x50-contrib-support-5.png");
+}
+
+/* BUtton style */
+.msg-login-btn-success {
+	color: #fff;
+	background-color: #B378D3;
+	border-color: #A55FCB;
+}
+.msg-login-btn-success:focus {
+	color: #fff;
+	background-color: #7D35A4;
+	border-color: #122b40;
+}
+.msg-login-btn-success:hover {
+	color: #fff;
+	background-color: #7D35A4;
+	border-color: #5F287B;
+}
+.msg-login-btn-success:active {
+	color: #fff;
+	background-color: #7D35A4;
+	border-color: #5F287B;
+}
+.msg-login-btn-success:active:hover,
+.msg-login-btn-success:active:focus,{
+	color: #fff;
+	background-color: #7D35A4;
+	border-color: #5F287B;
+}
+.msg-login-btn-success:active{
+	background-image: none;
+}
+.msg-login-btn-success.disabled:hover,
+.msg-login-btn-success[disabled]:hover,
+.msg-login-btn-success.disabled:focus,
+.msg-login-btn-success[disabled]:focus,
+fieldset[disabled] .btn-success:focus{
+	background-color: #B378D3;
+	border-color: #A55FCB;
+	cursor: not-allowed;
+	opacity: 0.65;
+}
