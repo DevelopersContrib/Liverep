@@ -1,91 +1,253 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contrib Messaging App</title>
-  <link rel="stylesheet" href="chat.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="language" content="en" />
+	
+        	        
+        		<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="Home" />
+<meta name="description" content="Home" />
+<link rel="stylesheet" type="text/css" href="/assets/f082cc79/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/assets/f082cc79/css/bootstrap-yii.css" />
+<link rel="stylesheet" type="text/css" href="/assets/f082cc79/css/jquery-ui-bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/css/font-social.css" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/css/font-awesome.css?4.0" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/css/pace.default.css?4.0" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/css/common.css?4.0" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/css/common-ui.css?4.0" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/css/slick/slick-theme.css?4.0" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/css/slick/slick.css?4.0" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/css/animate.min.css?4.0" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/css/linecons/flaticon.css?4.0" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/css/open-iconic/font/css/open-iconic.css?4.0" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/css/typicons.font/font/typicons.min.css?4.0" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/css/swiper/swiper.css?4.0" />
+<link rel="stylesheet" type="text/css" href="http://liverep.zipsite.net/admin.php/themes?css" />
+<script type="text/javascript" src="/assets/c82663f2/jquery.js"></script>
+<script type="text/javascript" src="/assets/f082cc79/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/f082cc79/js/bootstrap-noconflict.js"></script>
+<script type="text/javascript" src="/assets/f082cc79/bootbox/bootbox.min.js"></script>
+<script type="text/javascript" src="/assets/f082cc79/notify/notify.min.js"></script>
+<script type="text/javascript" src="http://liverep.zipsite.net/scripts/libraries/portfolio-layout-plugin.js"></script>
+<script type="text/javascript" src="http://liverep.zipsite.net/scripts/libraries/jquery.isotope.js"></script>
+<script type="text/javascript" src="http://liverep.zipsite.net/scripts/libraries/jquery-migrate.js?4.0"></script>
+<script type="text/javascript" src="http://liverep.zipsite.net/scripts/libraries/jquery.easing.js?4.0"></script>
+<script type="text/javascript" src="http://liverep.zipsite.net/scripts/libraries/slick/slick.js?4.0"></script>
+<script type="text/javascript" src="http://liverep.zipsite.net/scripts/libraries/tabs.js?4.0"></script>
+<script type="text/javascript" src="http://liverep.zipsite.net/scripts/libraries/wow.min.js?4.0"></script>
+<script type="text/javascript" src="http://liverep.zipsite.net/scripts/libraries/jquery.rd-parallax.js?4.0"></script>
+<script type="text/javascript" src="http://liverep.zipsite.net/scripts/libraries/swiper/swiper.jquery.js?4.0"></script>
+<script type="text/javascript" src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js?4.0"></script>
+<script type="text/javascript" src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js?4.0"></script>
+<title>Home</title>
+	
 </head>
-<body>
+<body id="page">
+<script type="text/javascript">
+	var lang = "en"</script>
+	<div id="header_wrapper" class="page_zone" type="header">
+<div class="zone" id="zone1495170714201"><div class="container"><div id="row1495170719653" class="row"><div id="column1495170719653" class="col"><div class="block"><div id="module-1495170719650" class="module-image module default" data-layout="0" data-type="image" data-id="0" data-skin="default"><div class="image">
+	<a href="http://www.liverep.com" target="_blank">
+    	<img src="/websites/liverep/assets/logoliverep2.png" title="Contribute to LiveRep" alt="Contribute to LiveRep" />
+    </a>
+</div>
 
-<div class="msg-launcher-container">
-			<div class="msg-launcher msg-launcher-enable">
-				<!-- Launcher Icon -->
-				<div class="msg-launcher-button">
-					<div class="msg-launcher-initials">
-					</div>
-				</div>
-				
-			</div>
-			<div class="msg-messenger msg-messenger-active">
-				<div class="msg-conversation-sheet">
-					<div class="msg-sheet-header">
-						<a href="javascript:;" class="menu-header-btn">
-							<i class="fa fa-align-justify"></i>
-							<!-- if there new message -->
-							<span class="msg-unread-counter msg-unread-counter-active">1</span>
-						</a>
-						<!-- If New Conversation -->
-						<div class="msg-sheet-header-generic-title ">
-							New Conversation
-						</div>
-						<!-- Already had conversation -->
-						<div class="msg-sheet-header-title-container hide">
-							<b class="msg-sheet-header-title msg-sheet-header-with-presence">
-								Skyler
-							</b>
-							<div class="msg-last-active">
-								<span class="relative-time-in-text">Last active 4 hours ago</span>
-							</div>
-						</div>
-						<a href="javascript:;" class="close-header-btn">
-							<i class="fa fa-times"></i>
-						</a>
-						<a href="javascript:;" class="minimize-header-btn">
-							<i class="fa fa-minus"></i>
-						</a>
-					</div>
-					<div class="msg-sheet-body"></div>
-					
-					
-					
-					<div class="msg-sheet-content">
-						<div class="msg-sheet-content-container">
-							
-							<ul class="pages">
-						    
-						    <li class="chat-page">
-						      <div class="chatArea">
-						        <div class="msg-conversation-parts-container ">
-									<div class="msg-conversation-parts messages">
-										
-									</div>
-							      </div>
-							     <div class="msg-composer-container ">
-									<form class="msg-composer">
-										<div class="msg-composer-textarea-container">
-											<div class="msg-composer-textarea">
-												<pre><span></span><br></pre>
-												<textarea class="inputMessage" placeholder="Write a reply…"></textarea>
-											</div>
-										</div>
-										<div class="msg-powered-by">
-											<a href="">
-												<span>We run on <u>Intercom</u></span>
-											</a>
-										</div>
-									</form>
-					            </div>    
-							      
-						      </div>
-						    
-						    </li>
-						    
-						    
-						    
-						    <li class="login-page">
-						      <div class="msg-app-profile-container ">
-								<div class="msg-app-profile">
-									    <p><input type="text" class="usernameInput"  name="login" value="" placeholder="Username or Email"></p>
-								        <p><input type="password" name="password" value="" placeholder="Password"></p>
-								        <p class="submit"><input type="submit" name="commit" value="Login"></p>
-     							</div>
+</div></div></div></div></div></div></div>
+<div id="main_wrapper" class="page_zone" type="main">
+<div class="zone header" id="zone1495170480124"><div class="container"><div id="row1495170480262" class="row"><div id="column1495170480263" class="col"><div class="block"><div id="module-591e7db0b4c3a80" class="module-title module default" data-layout="0" data-type="title" data-id="0" data-skin="default"><h2 class="text-center">CONTRIBUTE TO LIVEREP CODEBASE</h2></div><div id="module-1495174694322" class="module-text module default" data-layout="0" data-type="text" data-id="0" data-skin="default">        <div class="wrapper">
+            <div class="text">
+            <p style="text-align: center;"><span style="font-size:20px;"><span class="color-0">Liverep was developed using Node JS and is integrated into Contrib Network. </span></span><br></p><p style="text-align: center;"><span style="font-size:20px;"><span class="color-0">Contribute to Liverep via</span><span class="color-1"> </span><a data-cke-saved-href="https://github.com/DevelopersContrib/Liverep/" href="https://github.com/DevelopersContrib/Liverep/"><span class="color-17">Github.</span></a></span><br></p>            </div>
+        </div></div><div id="module-1495175566123" class="module-title module default" data-layout="0" data-type="title" data-id="0" data-skin="default"><h3 class="text-center">FEATURES<br></h3></div><div id="module-1495175972930" class="module-text module default" data-layout="0" data-type="text" data-id="0" data-skin="default">        <div class="wrapper">
+            <div class="text">
+            <ol><li style="text-align: center;"><span style="font-size:16px;">Created via NodeJS<br></span></li><li style="text-align: center;"><span style="font-size:16px;">Add personal live representatives to your domains.</span><br></li><li style="text-align: center;"><span style="font-size:16px;">Slack integration.</span><br></li><li style="text-align: center;">Customize introduction.<br></li></ol>            </div>
+        </div></div></div></div></div></div></div><div class="zone" id="zone1495170480150"><div class="container"><div id="row1495170480284" class="row"><div id="column1495170480285" class="col"><div class="block"><div id="module-591e7db0b546097" class="module-title module default" data-layout="0" data-type="title" data-id="0" data-skin="default"><h2 class="text-center">PORFOLIO</h2></div><div id="module-591e7db0b564e59" class="module-line module default" data-layout="0" data-type="line" data-id="0" data-skin="default"><div class="wrapper text-center"><div class="line line-30"></div></div></div><div id="module-591e7db0b59a231" class="module-gallery module default" data-layout="0" data-type="gallery" data-id="0" data-skin="default">
+<div class="portfolio-filter" style=display:none>
+	<ul data-filter-group="category" class="filter">
+    	<li data-filter="" class="active"> <a href="#" >Show all</a></li>
+    	    
+    </ul>
+</div>
+
+<div class="portfolio-container images" data-list-layout="grid-layout" data-column=3 data-item-margin=10>
+        <div class="portfolio-list" data-all-posts-count="6">
+        	        <div class="portfolio-item column3 first_column" filter="0">
+        	<div class="inner-wrap">
+                <div class="image_content">
+                    <a href="http://liverep.zipsite.net/themes/freelancer/assets/portfolio/cabin.png" title="Inspire">
+						<img src="http://liverep.zipsite.net/themes/freelancer/assets/portfolio/cabin.png" alt="Inspire"/>
+						<span class="zoom-icon"></span>
+					</a>
+                </div>
+                <div class="item_content">
+                    <h3>
+                        <a href="#" target="_blank">
+                            Inspire                        </a>
+                    </h3>
+                    <p>
+                        PHOTOGRAPHY                    </p>
+                </div>
+                   
+           </div>
+        </div>
+                   
+       	        <div class="portfolio-item column3" filter="0">
+        	<div class="inner-wrap">
+                <div class="image_content">
+                    <a href="http://liverep.zipsite.net/themes/freelancer/assets/portfolio/cake.png" title="Inspire">
+						<img src="http://liverep.zipsite.net/themes/freelancer/assets/portfolio/cake.png" alt="Inspire"/>
+						<span class="zoom-icon"></span>
+					</a>
+                </div>
+                <div class="item_content">
+                    <h3>
+                        <a href="#" target="_blank">
+                            Inspire                        </a>
+                    </h3>
+                    <p>
+                        PHOTOGRAPHY                    </p>
+                </div>
+                   
+           </div>
+        </div>
+                   
+       	        <div class="portfolio-item column3" filter="0">
+        	<div class="inner-wrap">
+                <div class="image_content">
+                    <a href="http://liverep.zipsite.net/themes/freelancer/assets/portfolio/circus.png" title="Inspire">
+						<img src="http://liverep.zipsite.net/themes/freelancer/assets/portfolio/circus.png" alt="Inspire"/>
+						<span class="zoom-icon"></span>
+					</a>
+                </div>
+                <div class="item_content">
+                    <h3>
+                        <a href="#" target="_blank">
+                            Inspire                        </a>
+                    </h3>
+                    <p>
+                        PHOTOGRAPHY                    </p>
+                </div>
+                   
+           </div>
+        </div>
+                   
+       	        <div class="portfolio-item column3 first_column" filter="0">
+        	<div class="inner-wrap">
+                <div class="image_content">
+                    <a href="http://liverep.zipsite.net/themes/freelancer/assets/portfolio/game.png" title="Inspire">
+						<img src="http://liverep.zipsite.net/themes/freelancer/assets/portfolio/game.png" alt="Inspire"/>
+						<span class="zoom-icon"></span>
+					</a>
+                </div>
+                <div class="item_content">
+                    <h3>
+                        <a href="#" target="_blank">
+                            Inspire                        </a>
+                    </h3>
+                    <p>
+                        PHOTOGRAPHY                    </p>
+                </div>
+                   
+           </div>
+        </div>
+                   
+       	        <div class="portfolio-item column3" filter="0">
+        	<div class="inner-wrap">
+                <div class="image_content">
+                    <a href="http://liverep.zipsite.net/themes/freelancer/assets/portfolio/safe.png" title="Inspire">
+						<img src="http://liverep.zipsite.net/themes/freelancer/assets/portfolio/safe.png" alt="Inspire"/>
+						<span class="zoom-icon"></span>
+					</a>
+                </div>
+                <div class="item_content">
+                    <h3>
+                        <a href="#" target="_blank">
+                            Inspire                        </a>
+                    </h3>
+                    <p>
+                        PHOTOGRAPHY                    </p>
+                </div>
+                   
+           </div>
+        </div>
+                   
+       	        <div class="portfolio-item column3" filter="0">
+        	<div class="inner-wrap">
+                <div class="image_content">
+                    <a href="http://liverep.zipsite.net/themes/freelancer/assets/portfolio/submarine.png" title="Inspire">
+						<img src="http://liverep.zipsite.net/themes/freelancer/assets/portfolio/submarine.png" alt="Inspire"/>
+						<span class="zoom-icon"></span>
+					</a>
+                </div>
+                <div class="item_content">
+                    <h3>
+                        <a href="#" target="_blank">
+                            Inspire                        </a>
+                    </h3>
+                    <p>
+                        PHOTOGRAPHY                    </p>
+                </div>
+                   
+           </div>
+        </div>
+                   
+       
+    </div>
+</div>
+</div></div></div></div></div></div><div class="zone about" id="zone1495170480168"><div class="container"><div id="row1495170480308" class="row"><div id="column1495170480308" class="col"><div class="block"><div id="module-591e7db0b675122" class="module-title module default" data-layout="0" data-type="title" data-id="0" data-skin="default"><h2 class="text-center">ABOUT LIVEREP<br></h2></div><div id="module-591e7db0b69f668" class="module-line module default" data-layout="0" data-type="line" data-id="0" data-skin="default"><div class="wrapper text-center"><div class="line line-30"></div></div></div></div></div></div><div id="row1495170480325" class="row hightlight"><div id="column1495170480326" class="col col-md-12 hightlight"><div class="block"><div id="module-591e7db0b6ca811" class="module-text module default" data-layout="0" data-type="text" data-id="0" data-skin="default">        <div class="wrapper">
+            <div class="text">
+            <p><span class="color-16">LIVEREP is created as a free alternative for websites and domains under VNOC/CONTRIB PLATFORM. This platform allows domain owners free frameworks and apps that powers their domain portfolio thus adding value to each and every domain.<br></span></p>            </div>
+        </div></div></div></div></div></div></div></div>
+<div id="footer_wrapper" class="page_zone" type="footer">
+<div class="zone footer" id="zone1495170480202"><div class="container"><div id="row1495170480373" class="row"><div id="column1495170480374" class="col col-md-4"><div class="block"><div id="module-591e7db0b8e3164" class="module-title module default" data-layout="0" data-type="title" data-id="0" data-skin="default"><h3 class="text-center">Location</h3></div><div id="module-591e7db0b903332" class="module-text module default" data-layout="0" data-type="text" data-id="0" data-skin="default">        <div class="wrapper">
+            <div class="text">
+            
+            
+            <p style="text-align:center;">3481 Melrose Place</p><p style="text-align:center;">Beverly Hills, CA 90210</p>                                    </div>
+        </div></div></div></div><div id="column149517048037471" class="col col-md-4"><div class="block"><div id="module-591e7db0b91da18" class="module-title module default" data-layout="0" data-type="title" data-id="0" data-skin="default"><h3 class="text-center">Around the Web</h3></div><div id="module-591e7db0b94b365" class="module-social_buttons module footer" data-layout="0" data-type="social_buttons" data-id="0" data-skin="footer"><div class="buttons text-center">
+        <ul>
+            <li>
+            <a class="social_icon social_icon_facebook" href="#" title="" >
+               
+            </a>
+        </li>
+                   
+           <li>
+            <a class="social_icon social_icon_google" href="#" title="" >
+               
+            </a>
+        </li>
+                   
+           <li>
+            <a class="social_icon social_icon_twitter" href="#" title="" >
+               
+            </a>
+        </li>
+                   
+           <li>
+            <a class="social_icon social_icon_linkedin" href="#" title="" >
+               
+            </a>
+        </li>
+                   
+       
+    </ul>
+</div></div></div></div><div id="column1495170480375" class="col col-md-4"><div class="block"><div id="module-591e7db0b9a3192" class="module-title module default" data-layout="0" data-type="title" data-id="0" data-skin="default"><h3 class="text-center">About Freelancer</h3></div><div id="module-591e7db0b9c1c23" class="module-text module default" data-layout="0" data-type="text" data-id="0" data-skin="default">        <div class="wrapper">
+            <div class="text">
+            
+            
+            <p style="text-align:center;">Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>                                    </div>
+        </div></div></div></div></div><div id="row1495170480391" class="row"><div id="column1495170480392" class="col"><div class="block"><div id="module-591e7db0b9d2913" class="module-title module default" data-layout="0" data-type="title" data-id="0" data-skin="default"><p class="text-center">Copyright © Your Website 2016</p></div></div></div></div></div></div></div>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+jQuery('[data-toggle=popover]').popover();
+jQuery('[data-toggle=tooltip]').tooltip();
+jQuery('#module-591e7db0b59a231').cherryPortfolioLayoutPlugin();
+new WOW().init();
+});
+/*]]>*/
+</script>
+</body>
+</html>
