@@ -1,0 +1,239 @@
+
+/* Sub Header */
+.wrap-sub-header{
+    padding: 50px 15px;
+    text-align: center;
+    color: #fff;
+    background: url("http://d2qcctj8epnr7y.cloudfront.net/images/jayson/banner-abstract.png") no-repeat scroll center center #428BCA;
+}
+.ul-pages-brdcrmbs li.active{
+    color: #000;
+}
+.ul-pages-brdcrmbs li a{
+    color: #fff;
+}
+.ul-pages-brdcrmbs li a:hover{
+    color: rgba(255,255,255,0.8);
+    transition:all 0.2s ease 0s;
+}
+.ul-pages-brdcrmbs li a,.ul-pages-brdcrmbs li a:hover,.ul-pages-brdcrmbs li a:focus{
+    outline: none;
+    text-decoration: none;
+}
+/* Content Pages */
+.section-content-pages{
+    background: #FBFBFB;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px 15px;
+    min-height: 510px;
+}
+.content-h3{
+    text-transform: capitalize;
+    font-size: 26px;
+    font-weight: bold;
+}
+.ul-why li i{
+    color: #428BCA;
+}
+.head-sub{
+    font-weight: 600;
+}
+.desc{
+    font-size: 17px;
+}
+.ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* Divider Wrap */
+.divider-wrap {
+    background: none repeat scroll 0 0 #DDDDDD;
+    display: block;
+    height: 2px;
+    margin: 50px 0;
+    position: relative;
+    width: 100%;
+}
+.divider-wrap:before, .divider-wrap:after {
+    background: none repeat scroll 0 0 #DDDDDD;
+    content: "";
+    height: 4px;
+    position: absolute;
+    width: 10px;
+    z-index: 100;
+}
+.divider-wrap:after {
+    bottom: -4px;
+    right: 0;
+}
+.divider-wrap:before, .divider-wrap:after {
+    background: none repeat scroll 0 0 #DDDDDD;
+    content: "";
+    height: 4px;
+    position: absolute;
+    width: 10px;
+    z-index: 100;
+}
+.divider-wrap:before {
+    left: 0;
+    top: -4px;
+}
+/* How it works */
+.we-love .icon-left {
+    font-size: 30px;
+    line-height: 60px;
+    margin: 25px 0 0;
+    position: relative;
+    z-index: 1000;
+}
+.icon-left {
+    background: none repeat scroll 0 0 #428BCA;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+    float: left;
+    font-weight: 700;
+    height: 60px;
+    overflow: hidden;
+    text-align: center;
+    width: 60px;
+}
+.blog-text {
+    overflow: hidden;
+    padding: 25px 0 0 25px;
+    min-height: 100px;
+}
+.blog-text h3{
+    margin-top: 0;
+    font-size: 18px;
+    color: #428BCA;
+}
+.we-love .sepertor{
+    color: #DDDDDD;
+    font-size: 16px;
+    margin: 25px 0 0 30px;
+    position: relative;
+    text-align: center;
+}
+.we-love .sepertor:after{
+    border-bottom: 1px solid #DDDDDD;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 11px;
+    width: 100%;
+    z-index: 1;
+}
+.we-love .sepertor span{
+    background: none repeat scroll 0 0 #fbfbfb;
+    display: inline-block;
+    padding: 0 10px;
+    position: relative;
+    z-index: 2;
+}
+.we-love .inner:before {
+    border-left: 1px solid #DDDDDD;
+    bottom: 11px;
+    content: "";
+    height: 60%;
+    left: 30px;
+    position: absolute;
+    z-index: 100;
+}
+.we-love .inner:first-child:after, .we-love .inner:first-child {
+    border: medium none;
+    padding: 0;
+}
+.we-love .inner:after {
+    border-left: 1px solid #DDDDDD;
+    content: "";
+    height: 60%;
+    left: 30px;
+    position: absolute;
+    top: -11px;
+    z-index: 100;
+}
+.we-love.about-us2 .inner {
+    padding: 25px 0 0 !important;
+}
+.we-love .inner {
+    position: relative;
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    .domainName {
+        color: #F0F0F0;
+        font-size: 26px;
+        font-style: italic;
+        font-weight: bold;
+    }
+}
+/* Forgot Password Image */
+.img-fgtPasswrd{
+    display: inline-block;
+}
+.wrap-otherPages{
+    background-image: url("http://d2qcctj8epnr7y.cloudfront.net/images/jayson/challenge-framework/street.jpg");
+    background-position: 50% center;
+    background-size: cover;
+}
+.wrap-overlayPages{
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 40px 0;
+}
+.underlined {
+    border-bottom: 4px solid #ed5a25;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+}
+.underlined {
+    border-bottom-width: 3px;
+}
+.contentOther{
+    font-size: 18px;
+    line-height: 1.4em;
+}
+/* Box Other pages */
+.box-itemOther{
+    border: 1px solid #e4e4e4;
+    margin-bottom: 35px;
+}
+.box-itemOther:hover .innerBoxItem{
+    border-bottom: 2px solid #ed5a25;
+}
+.innerBoxItem{
+    height: 210px;
+}
+.aItemBox{
+    display: block;
+    position: relative;
+    transition: all 0.3s ease 0s;
+    height: 210px;
+}
+.aItemBox,.aItemBox:hover,.aItemBox:focus,.aItemBox:active{
+    outline: none;
+    text-decoration: none;
+    color: #2a2a2a;
+}
+.aItemBox p{
+    margin-top: 10px;
+}
+.aItemBox span{
+    margin-top: 10px;
+}
+.read-more {
+    font-size: 14px;
+    display: block;
+}
+.read-more {
+    color: #00a2bd;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.img-inlnBlck{
+    display: inline-block;
+}

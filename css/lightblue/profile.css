@@ -1,0 +1,203 @@
+.wrap-profile-bckrgrnd{
+    background: url("http://d2qcctj8epnr7y.cloudfront.net/images/jayson/banner-abstract.png") no-repeat scroll center center #428BCA;
+    color: #FFFFFF;
+    padding: 50px 15px;
+}
+/* User profile */
+.wrap-prof-user{
+    display: inline-block;
+}
+.img-prof{
+    display: inline-block;
+    border: 5px solid #FFFFFF;
+    box-shadow: 0 0 6px #000000;
+    max-height: 180px;
+    max-width: 180px;
+    min-width: 180px;
+}
+.profile-info{
+    text-align: center;
+}
+.p-u-name{
+    margin-top: 20px;
+}
+/* Large desktop */
+@media (min-width: 1200px) {
+    .p-u-name{
+        margin-top: 0;
+    }
+    .profile-info{
+        text-align: left;
+    }
+}
+.wrap-info-content{
+    min-height: 256px;
+}
+.wrap-sub-prof-info{
+    margin-top: -30px;
+    border: 1px solid #ddd;
+    background: #fff;
+    padding-bottom: 30px;
+}
+.prof-ttle{
+    color: #428BCA;
+}
+/* Profile STYLE */
+.we-love .icon-left {
+    font-size: 30px;
+    line-height: 60px;
+    margin: 25px 0 0;
+    position: relative;
+    z-index: 1000;
+}
+.icon-left {
+    background: none repeat scroll 0 0 #428BCA;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+    float: left;
+    font-weight: 700;
+    height: 60px;
+    overflow: hidden;
+    text-align: center;
+    width: 60px;
+}
+.blog-text {
+    overflow: hidden;
+    padding: 0 0 0 25px;
+}
+.blog-text h3{
+    margin-top: 0;
+    font-size: 18px;
+    color: #428BCA;
+}
+.we-love .sepertor{
+    color: #DDDDDD;
+    font-size: 16px;
+    margin: 25px 0 0 30px;
+    position: relative;
+    text-align: center;
+}
+.we-love .sepertor:after{
+    border-bottom: 1px solid #DDDDDD;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 11px;
+    width: 100%;
+    z-index: 100;
+}
+.we-love .sepertor span{
+    background: none repeat scroll 0 0 #fff;
+    display: inline-block;
+    padding: 0 10px;
+    position: relative;
+    z-index: 1000;
+}
+.we-love .inner:before {
+    border-left: 1px solid #DDDDDD;
+    bottom: 11px;
+    content: "";
+    height: 60%;
+    left: 30px;
+    position: absolute;
+    z-index: 100;
+}
+.we-love .inner:first-child:after, .we-love .inner:first-child {
+    border: medium none;
+    padding: 0;
+}
+.we-love .inner:after {
+    border-left: 1px solid #DDDDDD;
+    content: "";
+    height: 60%;
+    left: 30px;
+    position: absolute;
+    top: -11px;
+    z-index: 100;
+}
+.we-love.about-us2 .inner {
+    padding: 25px 0 0 !important;
+}
+.we-love .inner {
+    position: relative;
+}
+/* Header for title */
+.wrap-header-style-1{
+    background-color: #428BCA;
+    display: inline-block;
+    padding: 10px 15px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 15px;
+}
+.wrap-header-style-1:after{
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-left: 6px solid rgba(0, 0, 0, 0);
+    border-right: 6px solid rgba(0, 0, 0, 0);
+    border-top: 6px solid #FFFFFF;
+    content: " ";
+    height: 0;
+    left: -3px;
+    position: absolute;
+    top: 0;
+    transform: rotate(-227deg);
+    width: 0;
+    z-index: 1000;
+}
+/* ribbong for statistic*/
+.stat-graph-1{
+    background:url("http://d2qcctj8epnr7y.cloudfront.net/images/jayson/ribbon-challenge.png") no-repeat scroll right center transparent;
+}
+.stat-graph-2{
+    background:url("http://d2qcctj8epnr7y.cloudfront.net/images/jayson/ribbon-challenge-yellow.png") no-repeat scroll right center transparent;
+}
+
+.stat-graph-1 span.sub-stat-title {
+    color: #3a87ad ;
+    border-right: 1px solid #51BFEA;
+}
+
+.stat-graph-2 span.sub-stat-title {
+    color: #c09853;
+    border-right: 1px solid #E6B869;
+}
+
+.stat-graph-2 span.sub-stat-result a {
+    color: #c09853 ;
+}
+
+.sub-stat{
+    float:left;
+    margin:0 0 10px 0;
+    clear:both;
+    width:auto;
+    height:42px;
+    padding:2px 30px 0 10px;
+    color:#fff;
+}
+span.sub-stat-title {
+    display:inline-block;
+    float:left;
+    font-weight:bold;
+    width:90px;
+    padding:9px 20px 0 0;
+    text-align:left;
+    font-size:13px;
+    margin:0;
+    line-height: 15px;
+    height:32px;
+}
+span.sub-stat-title.ss-2{
+    padding:3px 20px 0 0;
+}
+span.sub-stat-result{
+    color: #000;
+    display: inline-block;
+    float: left;
+    font-size: 20px;
+    padding: 3px 10px 0 20px;
+}
+span.sub-stat-result a:hover{
+    text-decoration:none;
+    font-weight:bold;
+}

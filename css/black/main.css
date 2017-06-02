@@ -1,0 +1,35 @@
+body{
+    padding-top: 51px;
+}
+.logo-menu{
+    height: 30px;
+   
+}
+.wrap-feature{
+    /* margin:30px 0; */
+    /* background-color: #fafafa; */
+    padding:100px 0;
+}
+/* footer */
+.footer{
+    background: #303030;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.ul-footer li a{
+    text-transform: uppercase;
+    color: #ADADAD;
+    transition: all 0.2s ease 0s;
+}
+.ul-footer li a:hover,.ul-sub-footer li a:hover{
+    color: #fff;
+}
+.ul-footer li a,.ul-footer li a:hover,.ul-footer li a:focus,.ul-sub-footer li a,.ul-sub-footer li a:focus,.ul-sub-footer li a:hover{
+    outline: none;
+}
+.ul-sub-footer ,.ul-sub-footer li a{
+    color: #707070;
+}
+.ul-sub-footer li a:hover{
+    text-decoration: none;
+}
