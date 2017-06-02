@@ -1,0 +1,115 @@
+
+.padd-banner{
+    padding: 10px 20px;
+    width: 65%;
+    margin: auto;
+}
+.banner-main{
+    margin-bottom: 30px;
+    padding-bottom:10px;
+    border-bottom: 1px solid #ddd;
+}
+.banner-main textarea{
+    resize:none;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.banner-main:last-child{
+    border-bottom: none;
+}
+.banner-header{
+    font-weight: 300;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    line-height: 65px;
+    margin:0 0 30px;
+}
+.banner-img-cont{
+    margin-bottom: 25px;
+}
+.banner-source{
+    font-size:18px;
+}
+.banner-info{
+    color: #333;
+}
+/*
+==============================================
+tossing
+==============================================
+*/
+
+.tossing{
+    animation-name: tossing;
+    -webkit-animation-name: tossing;
+
+    animation-duration: 2.5s;
+    -webkit-animation-duration: 2.5s;
+
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes tossing {
+    0% {
+        transform: rotate(-4deg);
+    }
+    50% {
+        transform: rotate(4deg);
+    }
+    100% {
+        transform: rotate(-4deg);
+    }
+}
+
+@-webkit-keyframes tossing {
+    0% {
+        -webkit-transform: rotate(-4deg);
+    }
+    50% {
+        -webkit-transform: rotate(4deg);
+    }
+    100% {
+        -webkit-transform: rotate(-4deg);
+    }
+}
+/*
+==============================================
+floating
+==============================================
+*/
+
+.floating{
+    animation-name: floating;
+    -webkit-animation-name: floating;
+
+    animation-duration: 1.5s;
+    -webkit-animation-duration: 1.5s;
+
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(8%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@-webkit-keyframes floating {
+    0% {
+        -webkit-transform: translateY(0%);
+    }
+    50% {
+        -webkit-transform: translateY(8%);
+    }
+    100% {
+        -webkit-transform: translateY(0%);
+    }
+}

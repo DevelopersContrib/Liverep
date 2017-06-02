@@ -1,0 +1,117 @@
+.success-page {
+	background:#fafafa;
+	border:1px solid #dedede;
+	padding:20px;
+	margin: 80px 0px 60px 0px;
+	text-align:center;
+	border-radius:3px;
+}
+.success-page .col-md-3 {
+background-color: #ffffff;
+border: 1px solid #FBEED5;
+color: #C09853;
+line-height: normal;
+width: 23.9%;
+margin: 0px 6px;
+padding:10px;
+border-radius:3px;
+}
+.success-page .steps {
+display:block;
+margin-bottom:10px;
+}
+.success-page .steps span {
+float: left;
+border: 1px solid !important;
+padding: 8px 14px;
+border-radius: 50px;
+background: #f5f5f5;
+font-weight: bold;
+font-size: 19px;
+color:#1D7A2B;
+}
+.success-page .step-head {
+font-size:19px;
+font-weight:bold;
+color:#1D7A2B;
+}
+.success-page .fa {
+font-size: 80px !important;
+color:#1D7A2B;
+}
+.ribbon {
+ font-size: 23px;
+ width: 60%;
+ position: relative;
+ background: #1D7A2B;
+ color: #fff;
+ text-align: center;
+ padding: .7em 2em; /* Adjust to suit */
+ margin: 1em auto 2em;
+ }
+.ribbon:before, .ribbon:after {
+ content: "";
+ position: absolute;
+ display: block;
+ bottom: -1em;
+ border: 1.5em solid #1D7A2B;
+ z-index: -1;
+}
+.ribbon:before {
+ left: -2em;
+ border-right-width: 1.5em;
+ border-left-color: transparent;
+}
+.ribbon:after {
+ right: -2em;
+ border-left-width: 1.5em;
+ border-right-color: transparent;
+}
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+ content: "";
+ position: absolute;
+ display: block;
+ border-style: solid;
+ border-color: #1D7A2B transparent transparent transparent;
+ bottom: -1em;
+}
+.ribbon .ribbon-content:before {
+ left: 0;
+ border-width: 1em 0 0 1em;
+}
+.ribbon .ribbon-content:after {
+ right: 0;
+ border-width: 1em 1em 0 0;
+}
+.blinking {
+	text-align:center;
+	font-family:Helvetica,sans-serif;
+	padding-top:20px;
+	color:#1D7A2B;
+}
+.blinking .fa:hover {
+color:#2FA03F !important;
+}
+.col-sign {
+background:#1D7A2B !important;
+color:#ffffff;
+}
+.col-sign .step-head {
+color:#ffffff;
+}
+.col-sign .fa {
+color:#ffffff;
+}
+
+
+
+.exist-sign {
+background:#1D7A2B !important;
+color:#ffffff;
+}
+.exist-sign .step-head {
+color:#ffffff;
+}
+.exist-sign .fa {
+color:#ffffff;
+}

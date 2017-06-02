@@ -1,0 +1,65 @@
+
+/* login */
+.wrap-login{
+    border-radius: 3px;
+}
+.header-login:before,.header-login:after{
+    display: table;
+    content: "";
+}
+.header-login:after{
+    clear: both;
+}
+.header-login{
+    background-color: #EFEFEF;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px 3px 0 0;
+    min-height: 51px;
+    position: relative;
+}
+/* icon login */
+.header-login > i, .header-login h5 {
+    color: #62687E;
+    float: left;
+    font-weight: 200;
+}
+.header-login > i {
+    font-size: 16px;
+    padding: 15px 10px 15px 11px;
+    text-align: center;
+    width: 40px;
+}
+.header-login h5 {
+    font-size: 16px;
+    line-height: 1.6em;
+}
+/* Body Login */
+.body-login{
+    padding: 25px;
+    background-color: #FFFFFF;
+    border-color: #CCCCCC;
+    border-style: solid;
+    border-width: 0 1px 1px;
+}
+.divider {
+    color: #656564;
+    font-size: 18px;
+    line-height: 30px;
+    margin: 10px 0 15px;
+    text-align: center;
+}
+.divider hr {
+    margin: 18px 0;
+    width: 40%;
+}
+/* Additional */
+a.morelink {
+    text-decoration:none;
+    outline: none;
+}
+.morecontent span {
+    display: none;
+}
+.img-register{
+    display: inline-block;
+}

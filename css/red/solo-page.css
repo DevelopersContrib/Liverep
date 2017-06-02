@@ -1,0 +1,121 @@
+html{
+    background: url("http://d2qcctj8epnr7y.cloudfront.net/images/jayson/patternHtml.png") repeat scroll 0 178px #DFDFDF;
+}
+body{
+    background: url("http://d2qcctj8epnr7y.cloudfront.net/images/jayson/patternBody.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+}
+.wrap-solo-challenge{
+    margin: 30px 0;
+}
+.chllnge-ftre-cont{
+    padding-top: 0;
+}
+/* Info Page */
+.wrap-sp-info{
+    margin-top: 30px;
+    background: #fff;
+    padding-bottom: 30px;
+    padding-top: 15px;
+}
+/* Timeline */
+.img-circle{
+    border: 3px solid #ddd;
+}
+/* sponsor */
+.sponsor-wrap{
+    margin-bottom: 10px;
+}
+/* Re-edit CSS */
+.chllnge-ftre-cont,.ftr-img{
+    height: 345px;
+}
+.ftr-img{
+    background: #E53F51;
+    overflow: hidden;
+}
+.ftr-img-container{
+    height: 345px;
+}
+.we-love .sepertor span{
+    background: #fff;
+}
+.we-love .inner:before{
+    height: 60%;
+}
+.ftr-num{
+    font-size: 18px;
+}
+.ul-ftre-chllenge li{
+    font-size: 12px;
+}
+.ul-time-line li{
+    vertical-align: top;
+}
+/* Large desktop */
+@media (min-width: 1200px) {
+    .divider-ryt{
+        border-right: 3px solid #EBEBEB;
+        min-height: 400px;
+    }
+    /* Timeline */
+    .ul-time-line li{
+        border-right: 1px solid #ddd;
+    }
+    .ul-time-line li:last-child{
+        border-right: none;
+    }
+}
+/* Right Side bar */
+.browse-link-ryt{
+    color: #333;
+}
+.browse-link-ryt:hover{
+    color: rgba(0,0,0,0.6);
+}
+.browse-link-ryt.browse-link-ryt:hover,.browse-link-ryt:focus{
+    text-decoration: none;
+    outline: none;
+}
+.browse-link-ryt h4,.btm-brdr{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+/* Latest Challengers Image */
+.ul-challenger li{
+    margin-bottom: 5px;
+}
+.challenger-img{
+    display: block;
+}
+.challenger-img img{
+    height: 45px;
+    width: 45px;
+}
+/* Browse Nav Tabs */
+.tab-nav-brwse{
+    list-style: none outside none;
+}
+.tab-nav-brwse li a{
+    color: #666;
+    transition: all 0.2s ease 0s;
+}
+.tab-nav-brwse li.active a{
+    font-weight: bold;
+}
+.tab-nav-brwse li{
+    display: inline-block;
+}
+.tab-nav-brwse li + li:before{
+    content: "/\00a0";
+}
+.tab-nav-brwse li a,.tab-nav-brwse li a:hover,.tab-nav-brwse li a:focus{
+    text-decoration: none;
+    outline: none;
+}
+.user-subm{
+    text-transform: capitalize;
+}
+.latest-img{
+    height: 230px;
+    background: #E53F51;
+}

@@ -1,0 +1,128 @@
+.verb {
+background: #f5f5f5;
+border: 1px solid #ddd;
+border-radius: 4px;
+padding: 0px 0px 30px 0px;
+margin-bottom: 30px;
+}
+.verb .odd a {
+display:block;
+text-decoration:none;
+padding: 5px 8px;
+}
+.verb .odd a:hover {
+background:#8F99AF;
+color:#fff;
+border-radius: 4px;
+}
+
+.fund-container {
+background: #f7f7f7;
+padding: 5px 5px 0px 5px;
+}
+.funded-l {
+float:left;
+}
+.funded-r {
+float:right;
+}
+.funded-l .fund-icon {
+float:left;
+font-size: 37px;
+margin-right: 10px;
+}
+.funded-l .fund-details {
+float:left;
+}
+.funded-l .fund-details p {
+margin:0px;
+}
+.funded-r .fund-icon {
+float:left;
+font-size: 37px;
+margin-right: 10px;
+}
+.funded-r .fund-details {
+float:left;
+}
+.funded-r .fund-details p {
+margin:0px;
+}
+.fundpage {
+margin-bottom: 20px;
+padding-bottom: 20px;
+}
+.fundpage h2 {
+text-align:center;
+margin: 0px;
+padding: 10px;
+border-bottom: 1px solid #333;
+margin-bottom: 20px;
+}
+.fundpage .venture-list li.col-md-3 {
+background: #31708F;
+padding: 10px;
+border-radius: 6px;
+margin: 8px;
+box-shadow: 0px 0px 5px #000;
+border: 1px solid #ccc;
+}
+.fundpage .venture-list .col-md-3 {
+width: 23.5%;
+}
+.venture-list .vlink {
+font-size: 22px;
+color: #fff;
+display: block;
+background: #333;
+padding: 3px 5px;
+text-decoration: none;
+border-radius:0 0 6px 6px;
+margin-bottom: 10px;
+}
+.venture-list .vlink:hover {
+color:#80B50F;
+}
+.venture-list .vdesc {
+height:120px;
+color:#fff;
+}
+.venture-list .img-responsive {
+border-radius: 6px 6px 0 0;
+width: 254px;
+height: 140px;
+background: #fff;
+}
+/*developer*/
+.devpage {
+background: none repeat scroll 0% 0% #f5f5f5;
+text-align: center;
+padding: 40px;
+border-radius: 6px;
+margin-bottom: 70px;
+margin-top: 70px;
+border: 1px solid #ddd;
+}
+.devpage .devbox {
+text-align:left;
+}
+.devpage .devdesc {
+font-size:21px;
+line-height: 27px;
+margin-bottom:20px;
+}
+.devpage .proceedto {
+text-align:center;
+}
+.devpage .proceedto a {
+background: #232323;
+padding:5px 12px;
+border-radius:6px;
+}
+.devpage .proceedto a:hover {
+color:#fff;
+}
+.devpage .fa {
+font-size: 40px;
+vertical-align: -5px;
+}
