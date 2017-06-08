@@ -11,7 +11,7 @@ var httpsOptions = {
 	};
 
 var server = require('https').createServer(httpsOptions, app);
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 
 var io = require('socket.io')(server);
 
