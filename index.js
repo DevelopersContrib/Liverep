@@ -5,12 +5,7 @@ var mysql      = require('mysql');
 var app = express();
 var fs = require('fs');
 
-var httpsOptions = {
-	    key: fs.readFileSync('key/server-key.pem'),
-	    cert: fs.readFileSync('key/server-cert.pem')
-	};
-
-var server = require('https').createServer(httpsOptions, app);
+var server = require('http').Server(app);
 var port = process.env.PORT || 3001;
 
 var io = require('socket.io')(server);
