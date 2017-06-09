@@ -266,7 +266,13 @@ io.on('connection', function (socket) {
       var userid = 0;
       
       
+    
+      
+      
       var sql = "SELECT * FROM Members WHERE Members.`EmailAddress` = '"+email+"' AND `Password` = '"+password+"'";
+      
+      
+      
 	  connection.query(sql, function(err, rows, fields) {
 	 // console.log(sql);
 	  console.log(rows.length);
@@ -321,6 +327,57 @@ io.on('connection', function (socket) {
     
   });
 
+  
+  //register user
+ socket.on('register', function (email,username,password) {
+	
+	 var connection = mysql.createConnection({
+		  host     : 'localhost',
+		  user     : 'root',
+		  password : '',
+		  database : 'liverep'
+		});
+	
+	  var error = "";
+	  
+	  var sql = "SELECT * FROM Members WHERE Members.`EmailAddress` = '"+email+"'";
+      connection.query(sql, function(err, rows, fields) {
+		  if (rows.length > 0){
+				 error += "Email already exists<br>";
+		   }
+	 });
+	
+  
+	 
+	 var sql = "SELECT * FROM Members WHERE Members.`Username` = '"+username+"'";
+     connection.query(sql, function(err, rows, fields) {
+		  if (rows.length > 0){
+				 error += "Username already exists<br>";
+		   }
+	 });
+	 
+	  
+	 if (error != ""){
+		 
+		 var sql = "INSERT INTO Members (EmailAdress, Username, `Password`) VALUES ('"+email+"', '"+username+"','"+password+"')";
+		 connection.query(sql, function (err, result) {
+		    if (err) throw err;
+		    console.log("1 record inserted");
+		  });
+	 }
+	 
+	 
+	  socket.emit('registered', {
+	      email: email,
+	      password:password,
+	      error:error
+	    });
+	     
+	 
+	 connection.end();
+	  
+    
+  });
   
   //send guest message to admin
   socket.on('send guest message', function (email,room) {

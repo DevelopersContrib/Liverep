@@ -20,6 +20,7 @@ $(function() {
   var $peopleList = $('.msg-list-people-container');
   var $chatContainer = $('.msg-sheet-content-container');
   var $joinRoom = $('.joinRoom');
+  var $btnregister = $('.btnregister');
 
   var $loginPage = $('.login-page'); // The login page
   var $chatPage = $('.chat-page'); // The chatroom page
@@ -66,6 +67,21 @@ $(function() {
   }
   
   
+  
+  function setRegister(email,password,error){
+	if (error !=""){
+		$('.warningMessage_re').show();
+		$('.warningMessage_re').html(error);
+	} else {
+		$('.usernameInput').val(email);
+		$('.passwordInput').val(password);
+		$('.register-page').fadeOut();
+		$('.login-page').fadeIn();
+		$( ".btnLogin" ).trigger( "click" );
+	} 
+	
+  }
+  
   // Sets the client's username
   
   function setUsername (username,avatar,exist,isadmin,userid) {
@@ -103,7 +119,7 @@ $(function() {
       }
     }else {
     	$warning.show();
-		$warning.html('Account does not exist.');
+		$warning.html('Account does not exist. Register <a href="javascript:void(0)" class="btnregister_a">here</a>');
     }
   }
   
@@ -494,7 +510,6 @@ $(function() {
 
   //click Login
   $btnLogin.click(function () {
-	  alert('here');
 	  setAuthenticate();
   });
 
@@ -507,6 +522,41 @@ $(function() {
   $inputMessage.click(function () {
     $inputMessage.focus();
   });
+  
+  $(document).on('click', '.btnregister_a', function(e) { 
+	 $('.login-page').hide();
+	 $('.register-page').show();
+  });
+  
+  
+  $(document).on('click', '.btnSubmitRegister', function(e) { 
+	    $('.warningMessage_re').hide();
+	    $('.warningMessage_ru').hide();
+	    $('.warningMessage_rp').hide();
+	    
+		var reg_email = $('#regEmailInput').val();
+		var reg_username = $('#regUsernameInput').val();
+		var reg_password = $('#regPasswordInput').val();
+		var emailfilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		
+		if (reg_email == ""){
+			$('.warningMessage_re').show();
+			$('.warningMessage_re').html('Please enter email');
+		}	else if(!emailfilter.test(reg_email)){
+			$('.warningMessage_re').show();
+			$('.warningMessage_re').html('Invalid Email Address');
+		}	else if (reg_username == ''){
+			$('.warningMessage_ru').show();
+			$('.warningMessage_ru').html('Please enter username');
+		}	else if (reg_password == ''){
+			$('.warningMessage_rp').show();
+			$('.warningMessage_rp').html('Please enter password');
+		}else {
+			socket.emit('register', reg_email,reg_username,reg_password);
+		}
+		 
+  });
+  
   
   $(document).on('click', '.joinRoom', function(e) { 
 	  var id = $(this).attr('id');
@@ -529,6 +579,14 @@ $(function() {
 
   
 //Whenever the server emits 'authenticated', log user
+  
+  
+  
+  socket.on('registered', function (data) {
+	  setRegister(data.email,data.password,data.error);
+  });
+
+  
   socket.on('authenticated', function (data) {
 	  setUsername(data.username,data.avatar,data.exist,data.isadmin,data.userid);
   });
