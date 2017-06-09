@@ -341,7 +341,7 @@ io.on('connection', function (socket) {
 	  var error = "";
 	  
 	  var sql = "SELECT * FROM Members WHERE Members.`EmailAddress` = '"+email+"'";
-      connection.query(sql, function(err, rows, fields) {
+	  connection.query(sql, function(err, rows, fields) {
 		  if (rows.length > 0){
 				 error += "Email already exists<br>";
 		   }
@@ -349,18 +349,19 @@ io.on('connection', function (socket) {
 	
   
 	 
-	 var sql = "SELECT * FROM Members WHERE Members.`Username` = '"+username+"'";
-     connection.query(sql, function(err, rows, fields) {
+	 var sql2 = "SELECT * FROM Members WHERE Members.`Username` = '"+username+"'";
+	 connection.query(sql2, function(err, rows, fields) {
 		  if (rows.length > 0){
 				 error += "Username already exists<br>";
 		   }
 	 });
 	 
 	  
+     
 	 if (error == ""){
 		 
-		 var sql = "INSERT INTO Members (EmailAdress, Username, `Password`) VALUES ('"+email+"', '"+username+"','"+password+"')";
-		 connection.query(sql, function (err, result) {
+		 var sql3 = "INSERT INTO Members (EmailAddress, Username, `Password`) VALUES ('"+email+"', '"+username+"','"+password+"')";
+		 connection.query(sql3, function (err, result) {
 		    if (err) throw err;
 		    console.log("1 record inserted");
 		  });
