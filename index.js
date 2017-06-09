@@ -357,7 +357,7 @@ io.on('connection', function (socket) {
 	 });
 	 
 	  
-	 if (error != ""){
+	 if (error == ""){
 		 
 		 var sql = "INSERT INTO Members (EmailAdress, Username, `Password`) VALUES ('"+email+"', '"+username+"','"+password+"')";
 		 connection.query(sql, function (err, result) {

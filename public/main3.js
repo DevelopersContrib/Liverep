@@ -69,6 +69,10 @@ $(function() {
   
   
   function setRegister(email,password,error){
+	  $('.warningMessage_re').hide();
+	    $('.warningMessage_ru').hide();
+	    $('.warningMessage_rp').hide();
+	    
 	if (error !=""){
 		$('.warningMessage_re').show();
 		$('.warningMessage_re').html(error);
