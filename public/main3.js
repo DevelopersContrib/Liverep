@@ -36,7 +36,7 @@ $(function() {
   var domain = $domain.val();
   //var $currentInput = $usernameInput.focus();
 
-  var socket = io.connect('http://184.107.244.116:3000');
+  var socket = io.connect('http://dev.liverep.com:3001');
 
   function addParticipantsMessage (data) {
     var message = '';
