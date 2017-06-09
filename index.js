@@ -360,7 +360,7 @@ io.on('connection', function (socket) {
      
 	 if (error == ""){
 		 
-		 var sql3 = "INSERT INTO Members (EmailAddress, Username, `Password`) VALUES ('"+email+"', '"+username+"','"+password+"')";
+		 var sql3 = "INSERT INTO Members (EmailAddress, Username, `Password`,FirstName,LastName) VALUES ('"+email+"', '"+username+"','"+password+"','"+username+"','')";
 		 connection.query(sql3, function (err, result) {
 		    if (err) throw err;
 		    console.log("1 record inserted");
