@@ -266,12 +266,12 @@ io.on('connection', function (socket) {
       var userid = 0;
       
       
-      var sql = "SELECT Members.*, MemberProfile.`profile_image` FROM Members LEFT JOIN MemberProfile ON (MemberProfile.`member_id` = Members.`MemberId`) WHERE Members.`EmailAddress` = '"+email+"' AND `Password` = '"+password+"'";
+      var sql = "SELECT Members.* FROM Members WHERE Members.`EmailAddress` = '"+email+"' AND `Password` = '"+password+"'";
 	  connection.query(sql, function(err, rows, fields) {
 	  connection.end();
 	  
 	 // console.log(sql);
-	  //console.log(rows.length);
+	  console.log(rows.length);
 	  
 		  if (rows.length > 0){
 			  exist = 1;
