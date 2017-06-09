@@ -264,6 +264,8 @@ io.on('connection', function (socket) {
 	  var exist = 0;
       var isadmin = 0;
       var userid = 0;
+      
+      
       var sql = "SELECT Members.*, MemberProfile.`profile_image` FROM Members LEFT JOIN MemberProfile ON (MemberProfile.`member_id` = Members.`MemberId`) WHERE Members.`EmailAddress` = '"+email+"' AND `Password` = '"+password+"'";
 	  connection.query(sql, function(err, rows, fields) {
 	  connection.end();
@@ -275,7 +277,6 @@ io.on('connection', function (socket) {
 			  exist = 1;
 			  
 		  }
-		  
 		  
 		  if (!err){
 			  for (var i = 0; i < rows.length; i++) {

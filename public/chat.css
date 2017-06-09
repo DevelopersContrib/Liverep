@@ -1,4 +1,5 @@
 body{
+	background-color: #e1e1e1;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
@@ -25,7 +26,7 @@ body > .msg-launcher-container{
 	visibility: visible;
 }
 .msg-launcher-button{
-	background-image: url("https://d2qcctj8epnr7y.cloudfront.net/images/2013/icon-50x50-contrib-support.png");
+	background-image: url("http://d2qcctj8epnr7y.cloudfront.net/images/2013/icon-50x50-contrib-support.png");
 	background-repeat: no-repeat;
 	background-size: 26px 25px;
 }
@@ -75,6 +76,7 @@ body > .msg-launcher-container{
 	border-radius: 5px;
 	bottom: 64px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+	cursor: pointer;
 	display: none;
 	position: absolute;
 	right: -5px;
@@ -117,9 +119,10 @@ body > .msg-launcher-container{
 .msg-launcher-hovercard-admins{
 	cursor: pointer;
 	float: left;
+	height: 50px;
 	position: relative;
 	text-align: center;
-	width: 65px;
+	width: 107px;
 }
 
 /* Admin Avatar */
@@ -134,7 +137,7 @@ body > .msg-launcher-container{
 	/* background-color: #fff; */
 	overflow: hidden;
 	text-align: center;
-	/* float: left; */
+	float: left;
 	border-radius: 50%;
 }
 .msg-launcher-container .msg-admin-avatar:first-child{
@@ -157,7 +160,7 @@ body > .msg-launcher-container{
 	cursor: pointer;
 	float: right;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	width: 225px;
+	width: 174px;
 }
 .msg-launcher-hovercard-app-name{
 	color: #37474f;
@@ -175,9 +178,9 @@ body > .msg-launcher-container{
 /* TextAre for Start Msg */
 .msg-launcher-hovercard-textarea{
 	border-radius: 0 0 5px 5px;
-	font-size: 12px;
-	height: 100px;
-	line-height: 23px;
+	cursor: pointer;
+	font-size: 16px;
+	height: 42px;
 	padding: 18px 16px;
 }
 .msg-launcher-hovercard-textarea textarea{
@@ -1185,133 +1188,4 @@ fieldset[disabled] .btn-success:focus{
 
 *,*:before,*:after{
 	box-sizing: border-box;
-}
-.msg-comment-by-admin .msg-comment-body-container.autoresponder{
-	background-color: #eff3f6;
-	border-color: #eff3f6;
-}
-
-/* Form Input Group */
-.msg-input-group,
-.msg-input-group:before,
-.msg-input-group:after,
-.fc-input,
-.fc-input:before,
-.fc-input:after,
-.msg-login-btn,
-.msg-login-btn:before,
-.msg-login-btn:after{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-.msg-input-group {
-	position: relative;
-	display: table;
-	border-collapse: separate;
-}
-.msg-input-group .fc-input {
-	position: relative;
-	z-index: 2;
-	float: left;
-	width: 100%;
-	margin-bottom: 0;
-}
-.msg-input-group .fc-input:focus {
-	z-index: 3;
-}
-.msg-input-group-btn,
-.msg-input-group .fc-input {
-	display: table-cell;
-}
-.msg-input-group-btn:not(:first-child):not(:last-child),
-.msg-input-group .fc-input:not(:first-child):not(:last-child) {
-	border-radius: 0;
-}
-.msg-input-group-btn {
-	width: 1%;
-	white-space: nowrap;
-	vertical-align: middle;
-}
-.msg-input-group .fc-input:first-child,
-.msg-input-group-btn:first-child > .msg-login-btn{
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
-}
-.msg-input-group .fc-input:last-child,
-.msg-input-group-btn:last-child > .msg-login-btn,
-.msg-input-group-btn:first-child > .msg-login-btn:not(:first-child) {
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
-}
-.msg-input-group-btn {
-	position: relative;
-	font-size: 0;
-	white-space: nowrap;
-}
-.msg-input-group-btn > .msg-login-btn {
-	position: relative;
-}
-.msg-input-group-btn > .msg-login-btn + .msg-login-btn {
-	margin-left: -1px;
-}
-.msg-input-group-btn > .msg-login-btn:hover,
-.msg-input-group-btn > .msg-login-btn:focus,
-.msg-input-group-btn > .msg-login-btn:active {
-	z-index: 2;
-}
-.msg-input-group-btn:first-child > .msg-login-btn {
-	margin-right: -1px;
-}
-.msg-input-group-btn:last-child > .msg-login-btn{
-	z-index: 2;
-	margin-left: -1px;
-}
-
-/* Form input Messaging */
-.msg-conversation-part .fc-input {
-	display: block;
-	width: 100%;
-	height: 36px;
-	padding: 6px 12px;
-	font-size: 14px;
-	line-height: 1.42857143;
-	color: #555;
-	background-color: #fff;
-	background-image: none;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-}
-.msg-conversation-part .fc-input:focus {
-	border-color: #66afe9;
-	outline: 0;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-}
-.msg-conversation-part .fc-input::-moz-placeholder {
-	color: #999;
-	opacity: 1;
-}
-.msg-conversation-part .fc-input:-ms-input-placeholder {
-	color: #999;
-}
-.msg-conversation-part .fc-input::-webkit-input-placeholder {
-	color: #999;
-}
-.msg-conversation-part .fc-input::-ms-expand {
-	background-color: transparent;
-	border: 0;
-}
-
-.msg-comment-body p + .msg-input-group{
-	margin-top: 10px;
-}
-
-.msg-name-avatarAdmin{
-	text-transform: capitalize;
 }
