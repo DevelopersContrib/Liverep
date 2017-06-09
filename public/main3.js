@@ -494,6 +494,7 @@ $(function() {
 
   //click Login
   $btnLogin.click(function () {
+	  alert('here');
 	  setAuthenticate();
   });
 
