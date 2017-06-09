@@ -266,10 +266,8 @@ io.on('connection', function (socket) {
       var userid = 0;
       
       
-      var sql = "SELECT Members.* FROM Members WHERE Members.`EmailAddress` = '"+email+"' AND `Password` = '"+password+"'";
+      var sql = "SELECT * FROM Members WHERE Members.`EmailAddress` = '"+email+"' AND `Password` = '"+password+"'";
 	  connection.query(sql, function(err, rows, fields) {
-	  connection.end();
-	  
 	 // console.log(sql);
 	  console.log(rows.length);
 	  
@@ -317,7 +315,7 @@ io.on('connection', function (socket) {
 		    
 		 });
 		
-  
+	  connection.end();
 	  
   
     
