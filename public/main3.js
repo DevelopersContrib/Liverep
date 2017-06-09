@@ -534,9 +534,9 @@ $(function() {
 	    $('.warningMessage_ru').hide();
 	    $('.warningMessage_rp').hide();
 	    
-		var reg_email = $('#regEmailInput').val();
-		var reg_username = $('#regUsernameInput').val();
-		var reg_password = $('#regPasswordInput').val();
+		var reg_email = $('.regEmailInput').val();
+		var reg_username = $('.regUsernameInput').val();
+		var reg_password = $('.regPasswordInput').val();
 		var emailfilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 		
 		if (reg_email == ""){
