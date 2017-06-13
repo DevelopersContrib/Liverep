@@ -58,7 +58,7 @@ jQuery(function() {
   var interval = null;
   //var $currentInput = $usernameInput.focus();
 
-  var socket = io.connect('https://liverep.contrib.com:3000');
+  var socket = io.connect('http://dev.liverep.com:3001');
   
 //Pad n to specified size by prepending a zeros
   function zeroPad(num, size) {
