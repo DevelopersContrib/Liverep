@@ -22,6 +22,7 @@ jQuery(function() {
   var $peopleList = jQuery('.msg-list-people-container');
   var $chatContainer = jQuery('.msg-sheet-content-container');
   var $joinRoom = jQuery('.joinRoom');
+  var $btnregister = $('.btnregister');
   var messageTimeSent = jQuery(".timesent");
 
   var $loginPage = jQuery('.login-page'); // The login page
@@ -150,6 +151,25 @@ jQuery(function() {
   }
   
   
+  function setRegister(email,password,error){
+	  $('.warningMessage_re').hide();
+	    $('.warningMessage_ru').hide();
+	    $('.warningMessage_rp').hide();
+	    
+	if (error !=""){
+		$('.warningMessage_re').show();
+		$('.warningMessage_re').html(error);
+	} else {
+		$('.usernameInput').val(email);
+		$('.passwordInput').val(password);
+		$('.register-page').fadeOut();
+		$('.login-page').fadeIn();
+		$( ".btnLogin" ).trigger( "click" );
+	} 
+	
+  }
+  
+  
   // Sets the client's username
   
   function setUsername (username,avatar,exist,isadmin2,userid) {
@@ -210,7 +230,7 @@ jQuery(function() {
     
      }else {
     	$warning.show();
-		$warning.html('Account does not exist.');
+    	$warning.html('Account does not exist. Register <a href="javascript:void(0)" class="btnregister_a">here</a>');
 		jQuery('.msg-loader-img-container').hide();
 		jQuery('.btnLogin').removeAttr('disabled');
     }
@@ -1020,6 +1040,17 @@ jQuery(function() {
     $inputMessage.focus();
   });
   
+  $(document).on('click', '.btnregister_a', function(e) { 
+		 $('.login-page').hide();
+		 $('.register-page').show();
+	  });
+	  
+ 
+  $(document).on('click', '.btnFReg', function(e) { 
+			 $('.login-page').hide();
+			 $('.register-page').show();
+  });
+	  
   //for guest messages
   $guestTextbox.keypress(function( event ) {
       if ( event.which == 13 ) {

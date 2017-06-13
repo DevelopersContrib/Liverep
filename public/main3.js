@@ -189,17 +189,23 @@ $(function() {
   
   // Sends a chat message
   function sendMessage () {
-    var message = $inputMessage.val();
-    // Prevent markup from being injected into the message
-    message = cleanInput(message);
-    // if there is a non-empty message and a socket connection
-    if (message) {
-      $inputMessage.val('');
-      log2(message);
-      // tell server to execute 'new message' and send along one parameter
-       socket.emit('new message', {message:message, username:$.session.get('username'), avatar:$.session.get('avatar')});
-    }
-  }
+	    var message = $inputMessage.val();
+	    var thed = jQuery('.domainInput').val();
+	    // Prevent markup from being injected into the message
+	    message = cleanInput(message);
+	    // if there is a non-empty message and a socket connection
+	    if (message) {
+	      $inputMessage.val('');
+	      if (channel != ""){
+	    	  if (isadmin == 0){
+	    		  sendToSlack(channel,message,jQuery.session.get('username'),jQuery.session.get('avatar'),thed);
+	    	  }
+	      }
+	      //log2(message);
+	      // tell server to execute 'new message' and send along one parameter
+	       socket.emit('new message', {message:message, username:jQuery.session.get('username'), avatar:jQuery.session.get('avatar'), userid:jQuery.session.get('userid'),mdate:moment(),domain:domain});
+	    }
+	  }
 
   // Log a message
   function log (message, options) {
