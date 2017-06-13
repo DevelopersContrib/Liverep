@@ -1055,6 +1055,7 @@ jQuery(function() {
 	    $('.warningMessage_re').hide();
 	    $('.warningMessage_ru').hide();
 	    $('.warningMessage_rp').hide();
+	    $(this).prop('disabled', true);
 	    
 		var reg_email = $('.regEmailInput').val();
 		var reg_username = $('.regUsernameInput').val();
@@ -1234,6 +1235,7 @@ jQuery(function() {
   
   
   socket.on('registered', function (data) {
+	  $('.btnSubmitRegister').prop('disabled', false);
 	  $('.warningMessage_re').hide();
 	  if (data.error == ""){
 		  $('.register-page').fadeOut();
