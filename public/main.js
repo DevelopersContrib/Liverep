@@ -621,7 +621,11 @@ jQuery(function() {
 		for (var i in rows) {
 			html += '<div class="msg-active-admin">';
 			html += '<div class="msg-admin-avatar-active">';
-			html += '<img alt="'+rows[i].Username+'" src="'+rows[i].profile_image+'">';
+			if (rows[i].profile_image==null){
+				html += '<img alt="'+rows[i].Username+'" src="https://d2qcctj8epnr7y.cloudfront.net/sheina/contrib/default_avatar.png">';
+			}else {
+				html += '<img alt="'+rows[i].Username+'" src="'+rows[i].profile_image+'">';
+			}
 			html += '</div>';
 			html += '<div class="msg-active-admin-name">';
 			html += rows[i].Username;
