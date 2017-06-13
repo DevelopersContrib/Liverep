@@ -1,6 +1,6 @@
 // Setup basic express server
 //Edit mysql on line 155 to setup your server
-var config = require('config.json');
+var config = require('./config.json');
 var express = require('express');
 var mysql      = require('mysql');
 var app = express();
