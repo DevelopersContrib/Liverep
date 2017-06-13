@@ -532,6 +532,10 @@ $(function() {
 	 $('.register-page').show();
   });
   
+  $(document).on('click', '.btnFReg', function(e) { 
+		 $('.login-page').hide();
+		 $('.register-page').show();
+	});
   
   $(document).on('click', '.btnSubmitRegister', function(e) { 
 	    $('.warningMessage_re').hide();
