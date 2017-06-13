@@ -1,5 +1,6 @@
 // Setup basic express server
 //Edit mysql on line 155 to setup your server
+var config = require('config.json');
 var express = require('express');
 var mysql      = require('mysql');
 var app = express();
@@ -46,7 +47,9 @@ var roomusers = [];
 var sockets = [];
 var people = {};
 
-
+function isset(object){
+    return (typeof object !=='undefined');
+}
 
 
 function findClientsSocket(io,roomId, namespace) {
@@ -103,9 +106,7 @@ function findRoomName(room,people){
 function sendOfflineMessages(msgcount,isadmin,email,msgs,domain,username){
 	var transporter = nodemailer.createTransport();
 	var maillist = [
-	                'kjabellar@gmail.com',
-	                'catherinesicuya@gmail.com',
-	                'lucille2911@gmail.com',
+	                config.email
 	              ];
 
 		
@@ -147,10 +148,10 @@ io.on('connection', function (socket) {
   socket.on('new message', function (data) {
 	  //NOTE : Add your mysql access here.
 	  var connection = mysql.createConnection({
-		  host     : '',
-		  user     : '',
-		  password : '',
-		  database : ''
+		  host     : config.dbhost,
+		  user     : config.dbuser,
+		  password : config.dbpassword,
+		  database : config.db
 		});
 	  
 	  var read = 0;
@@ -191,10 +192,10 @@ io.on('connection', function (socket) {
 	    
 	
 	 var connection = mysql.createConnection({
-		  host     : 'localhost',
-		  user     : 'root',
-		  password : '',
-		  database : 'liverep'
+		  host     : config.dbhost,
+		  user     : config.dbuser,
+		  password : config.dbpassword,
+		  database : config.db
 		});
 	  
 	  var read = 0;
@@ -223,10 +224,10 @@ io.on('connection', function (socket) {
   
   socket.on('deletemessage', function (msg_id) {
 	  var connection = mysql.createConnection({
-		  host     : 'localhost',
-		  user     : 'root',
-		  password : '',
-		  database : 'liverep'
+		  host     : config.dbhost,
+		  user     : config.dbuser,
+		  password : config.dbpassword,
+		  database : config.db
 		});
 	  
 	  connection.query('Delete From ChatMessages WHERE ?', [{ msg_id: msg_id }])
@@ -237,10 +238,10 @@ io.on('connection', function (socket) {
   
   socket.on('updatemessage', function (msg_id,msg) {
 	  var connection = mysql.createConnection({
-		  host     : 'localhost',
-		  user     : 'root',
-		  password : '',
-		  database : 'liverep'
+		  host     : config.dbhost,
+		  user     : config.dbuser,
+		  password : config.dbpassword,
+		  database : config.db
 		});
 	  
 	  connection.query('UPDATE ChatMessages SET ? WHERE ?', [{ message: msg }, { msg_id: msg_id }])
@@ -253,10 +254,10 @@ io.on('connection', function (socket) {
   socket.on('authenticate', function (email,password,domain) {
 	  
 	  var connection = mysql.createConnection({
-		  host     : 'localhost',
-		  user     : 'root',
-		  password : '',
-		  database : 'liverep'
+		  host     : config.dbhost,
+		  user     : config.dbuser,
+		  password : config.dbpassword,
+		  database : config.db
 		});
 	
 	  var username = "";
@@ -284,7 +285,7 @@ io.on('connection', function (socket) {
 		  
 		  if (!err){
 			  for (var i = 0; i < rows.length; i++) {
-				  username = rows[i].FirstName;
+				  username = rows[i].Username;
 				  avatar = rows[i].profile_image;
 				  isadmin = rows[i].IsAdmin;
 				  if (isadmin == null){
@@ -293,7 +294,7 @@ io.on('connection', function (socket) {
 				  userid = rows[i].MemberId;
 				  
 				  if ((avatar != "") && (avatar != null)){
-					  avatar = "https://www.contrib.com/img/timthumb.php?src=uploads/profile/"+avatar+"&w=128&h=128";
+					  
 				  }else {
 					  avatar = "https://d2qcctj8epnr7y.cloudfront.net/sheina/contrib/default_avatar.png";
 				  }
@@ -332,10 +333,10 @@ io.on('connection', function (socket) {
  socket.on('register', function (email,username,password) {
 	
 	 var connection = mysql.createConnection({
-		  host     : 'localhost',
-		  user     : 'root',
-		  password : '',
-		  database : 'liverep'
+		 host     : config.dbhost,
+		 user     : config.dbuser,
+		 password : config.dbpassword,
+		 database : config.db
 		});
 	
 	  var error = "";
@@ -387,10 +388,10 @@ io.on('connection', function (socket) {
       var username="user"+room;
       
 	  var connection = mysql.createConnection({
-		  host     : 'localhost',
-		  user     : 'root',
-		  password : '',
-		  database : 'liverep'
+		  host     : config.dbhost,
+		  user     : config.dbuser,
+		  password : config.dbpassword,
+		  database : config.db
 		});
 	  
 	  var sql = "SELECT `ChatMessages`.*, Members.`FirstName`, MemberProfile.`profile_image` FROM `ChatMessages` LEFT JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) LEFT JOIN `MemberProfile` ON (`MemberProfile`.`member_id` = Members.`MemberId`) WHERE room = "+room+" ORDER BY msg_id LIMIT 1";
@@ -491,10 +492,10 @@ io.on('connection', function (socket) {
 	if (guest == 0){
 		
 		 var connection = mysql.createConnection({
-			  host     : 'localhost',
-			  user     : 'root',
-			  password : '',
-			  database : 'liverep'
+			  host     : config.dbhost,
+			  user     : config.dbuser,
+			  password : config.dbpassword,
+			  database : config.db
 			});
 		 
 		var sql = "SELECT Members.`FirstName`, MemberProfile.`profile_image` FROM Members  INNER JOIN MemberProfile ON (MemberProfile.`member_id` = Members.`MemberId`) WHERE IsAdmin =1 AND MemberId IN (7,8,19,38,55,1038,2317) ORDER BY RAND() LIMIT 3";
@@ -509,10 +510,10 @@ io.on('connection', function (socket) {
 	
 	//get room messages
 	 var connection = mysql.createConnection({
-		  host     : 'localhost',
-		  user     : 'root',
-		  password : '',
-		  database : 'liverep'
+		  host     : config.dbhost,
+		  user     : config.dbuser,
+		  password : config.dbpassword,
+		  database : config.db
 		});
 	 
 
@@ -543,10 +544,10 @@ io.on('connection', function (socket) {
   socket.on('refreshlist', function () {
 	  
 	  var connection = mysql.createConnection({
-		  host     : 'localhost',
-		  user     : 'root',
-		  password : '',
-		  database : 'liverep'
+		  host     : config.dbhost,
+		  user     : config.dbuser,
+		  password : config.dbpassword,
+		  database : config.db
 		});
 	 
 	  var sql = "SELECT Members.`MemberId`,Members.`FirstName`, Members.`LastName`,Members.`IsAdmin`, MemberProfile.`profile_image`, ChatMessages.*,(SELECT COUNT(*) FROM ChatMessages WHERE member_id=Members.`MemberId` AND `read`=0) AS `total` FROM ChatMessages INNER JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) INNER JOIN MemberProfile ON (MemberProfile.`member_id` = Members.`MemberId`)WHERE IsAdmin IS NULL  AND `date_sent` > DATE_SUB(NOW(), INTERVAL 5 DAY)GROUP BY ChatMessages.`member_id`,domain ORDER BY msg_id DESC";
@@ -606,10 +607,10 @@ io.on('connection', function (socket) {
 			
 			//get room messages
 			 var connection = mysql.createConnection({
-				  host     : 'localhost',
-				  user     : 'root',
-				  password : '',
-				  database : 'liverep'
+				  host     : config.dbhost,
+				  user     : config.dbuser,
+				  password : config.dbpassword,
+				  database : config.db
 				});
 			 
 			var sql = "SELECT `ChatMessages`.*, Members.`FirstName`, MemberProfile.`profile_image` FROM `ChatMessages` INNER JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) LEFT JOIN `MemberProfile` ON (`MemberProfile`.`member_id` = Members.`MemberId`) WHERE room = "+room+" ORDER BY msg_id";
@@ -638,10 +639,10 @@ io.on('connection', function (socket) {
   socket.on('getrooms', function () {
     
 	  var connection = mysql.createConnection({
-		  host     : 'localhost',
-		  user     : 'root',
-		  password : '',
-		  database : 'liverep'
+		  host     : config.dbhost,
+		  user     : config.dbuser,
+		  password : config.dbpassword,
+		  database : config.db
 		});
 	 
 	  var sql = "SELECT Members.`MemberId`,Members.`FirstName`, Members.`LastName`,Members.`IsAdmin`, `profile_image`, ChatMessages.*,(SELECT COUNT(*) FROM ChatMessages WHERE member_id=Members.`MemberId` AND `read`=0) AS `total` FROM ChatMessages INNER JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) WHERE IsAdmin IS NULL  AND `date_sent` > DATE_SUB(NOW(), INTERVAL 5 DAY)GROUP BY ChatMessages.`member_id`,domain ORDER BY msg_id DESC";

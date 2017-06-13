@@ -1,0 +1,7 @@
+{
+    "dbhost" : "localhost",
+    "dbuser" : "root",
+    "dbpassword" : "",
+    "db" : "liverep",
+    "email" : "kjabellar@gmail.com",
+}
