@@ -1231,6 +1231,21 @@ jQuery(function() {
  
 
   // Socket events
+  
+  
+  socket.on('registered', function (data) {
+	  $('.warningMessage_re').hide();
+	  if (data.error == ""){
+		  $('.register-page').fadeOut();
+		  $('.login-page').fadeIn();
+		  $('.usernameInput').val(data.email);
+		  $('.passwordInput').val(data.password);
+		  $('.btnLogin').trigger( "click" );
+	  }else {
+		  $('.warningMessage_re').show();
+		  $('.warningMessage_re').html(data.error);
+	  }
+  });
 
   
 //Whenever the server emits 'authenticated', log user
