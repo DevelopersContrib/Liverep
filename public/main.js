@@ -1050,6 +1050,34 @@ jQuery(function() {
 			 $('.login-page').hide();
 			 $('.register-page').show();
   });
+  
+  $(document).on('click', '.btnSubmitRegister', function(e) { 
+	    $('.warningMessage_re').hide();
+	    $('.warningMessage_ru').hide();
+	    $('.warningMessage_rp').hide();
+	    
+		var reg_email = $('.regEmailInput').val();
+		var reg_username = $('.regUsernameInput').val();
+		var reg_password = $('.regPasswordInput').val();
+		var emailfilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		
+		if (reg_email == ""){
+			$('.warningMessage_re').show();
+			$('.warningMessage_re').html('Please enter email');
+		}	else if(!emailfilter.test(reg_email)){
+			$('.warningMessage_re').show();
+			$('.warningMessage_re').html('Invalid Email Address');
+		}	else if (reg_username == ''){
+			$('.warningMessage_ru').show();
+			$('.warningMessage_ru').html('Please enter username');
+		}	else if (reg_password == ''){
+			$('.warningMessage_rp').show();
+			$('.warningMessage_rp').html('Please enter password');
+		}else {
+			socket.emit('register', reg_email,reg_username,reg_password);
+		}
+		 
+});
 	  
   //for guest messages
   $guestTextbox.keypress(function( event ) {
