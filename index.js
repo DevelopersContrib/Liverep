@@ -496,7 +496,7 @@ io.on('connection', function (socket) {
 			  database : config.db
 			});
 		 
-		var sql = "SELECT Members.`FirstName`,Members.`Username`, `profile_image` FROM Members WHERE IsAdmin =1 AND MemberId IN (1) ORDER BY RAND() LIMIT 3";
+		var sql = "SELECT Members.`FirstName`,Members.`Username`, `profile_image` FROM Members WHERE IsAdmin =1 ORDER BY RAND() LIMIT 3";
 		 
 		connection.query(sql, function(err, rows, fields) {
 		    if (err) throw err;
