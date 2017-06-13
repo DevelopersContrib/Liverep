@@ -292,12 +292,12 @@ jQuery(function() {
 				    avatar = rows[i].profile_image;
 				    
 				    if ((avatar != "") && (avatar != null)){
-						  avatar = "https://www.contrib.com/img/timthumb.php?src=uploads/profile/"+avatar+"&w=128&h=128";
+						 
 					  }else {
 						  avatar = "https://d2qcctj8epnr7y.cloudfront.net/sheina/contrib/default_avatar.png";
 					  }
 				    
-				          uname = rows[i].FirstName;
+				          uname = rows[i].Username;
 				          if ((uname == null) || (uname == '')){
 				        	  uname = 'user'+rows[i].room;
 				          }
@@ -542,7 +542,7 @@ jQuery(function() {
 			    
 			    html +='<div class="msg-conversation-part">';
 			    html +='<div class="msg-comment msg-comment-by-admin">';
-			    html +='<img src="https://www.contrib.com/img/timthumb.php?src=https://www.contrib.com/uploads/profile/'+jQuery.session.get("chatrep_image")+'&w=128&h=128" alt="" class="msg-comment-avatar">';
+			    html +='<img src="'+jQuery.session.get("chatrep_image")+'" alt="" class="msg-comment-avatar">';
 			    html +='<div class="msg-comment-body-container">';
 			    html +='<div class="msg-comment-body msg-embed-body">';
 			    html +='<p>Get notified by email</p>';
@@ -621,10 +621,10 @@ jQuery(function() {
 		for (var i in rows) {
 			html += '<div class="msg-active-admin">';
 			html += '<div class="msg-admin-avatar-active">';
-			html += '<img alt="'+rows[i].FirstName+'" src="https://www.contrib.com/img/timthumb.php?src=uploads/profile/'+rows[i].profile_image+'&w=128&h=128">';
+			html += '<img alt="'+rows[i].Username+'" src="'+rows[i].profile_image+'">';
 			html += '</div>';
 			html += '<div class="msg-active-admin-name">';
-			html += rows[i].FirstName;
+			html += rows[i].Username;
 			html += '</div>';
 			html += '</div>';
 		}
@@ -715,7 +715,7 @@ jQuery(function() {
 	
 	  for (var i in rows) {
 		  if ((rows[i].profile_image != "") && (rows[i].profile_image != null)){
-			  avatar = "https://www.contrib.com/img/timthumb.php?src=uploads/profile/"+rows[i].profile_image+"&w=128&h=128";
+			  avatar = rows[i].profile_image;
 		  }else {
 			  avatar = "https://d2qcctj8epnr7y.cloudfront.net/sheina/contrib/default_avatar.png";
 		  }
@@ -758,7 +758,7 @@ jQuery(function() {
 				    html += '<div class="msg-comment-body-container">';
 				    html += '<div class="msg-comment-body msg-embed-body">';
 				    html += '<span class="msg-user-comment-name text-capitalize">';
-				    html += rows[i].FirstName;
+				    html += rows[i].Username;
 				    html += '</span>';
 				    html += '<p>'+rows[i].message+'</p>';
 				    html += '</div>';
@@ -809,12 +809,12 @@ jQuery(function() {
 				    avatar = rows[i].profile_image;
 				    
 				    if ((avatar != "") && (avatar != null)){
-						  avatar = "https://www.contrib.com/img/timthumb.php?src=uploads/profile/"+avatar+"&w=128&h=128";
+						
 					  }else {
 						  avatar = "https://d2qcctj8epnr7y.cloudfront.net/sheina/contrib/default_avatar.png";
 					  }
 				    
-				          uname = rows[i].FirstName;
+				          uname = rows[i].Username;
 				          if ((uname == null) || (uname == '')){
 				        	  uname = 'user'+rows[i].room;
 				          }

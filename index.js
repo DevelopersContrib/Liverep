@@ -496,7 +496,7 @@ io.on('connection', function (socket) {
 			  database : config.db
 			});
 		 
-		var sql = "SELECT Members.`FirstName`, `profile_image` FROM Members WHERE IsAdmin =1 AND MemberId IN (1) ORDER BY RAND() LIMIT 3";
+		var sql = "SELECT Members.`FirstName`,Members.`Username`, `profile_image` FROM Members WHERE IsAdmin =1 AND MemberId IN (1) ORDER BY RAND() LIMIT 3";
 		 
 		connection.query(sql, function(err, rows, fields) {
 		    if (err) throw err;
@@ -516,9 +516,9 @@ io.on('connection', function (socket) {
 	 
 
 		if (guest == 0){
-	      var sql = "SELECT `ChatMessages`.*, Members.`FirstName`, `profile_image` FROM `ChatMessages` INNER JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) WHERE room = "+room+" ORDER BY msg_id";
+	      var sql = "SELECT `ChatMessages`.*, Members.`FirstName`,Members.`Username`, `profile_image` FROM `ChatMessages` INNER JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) WHERE room = "+room+" ORDER BY msg_id";
 		}else {
-		  var sql = "SELECT `ChatMessages`.*, Members.`FirstName`, `profile_image` FROM `ChatMessages` LEFT JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) WHERE room = "+room+" ORDER BY msg_id";	
+		  var sql = "SELECT `ChatMessages`.*, Members.`FirstName`,Members.`Username`, `profile_image` FROM `ChatMessages` LEFT JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) WHERE room = "+room+" ORDER BY msg_id";	
 		}
 		
 	connection.query(sql, function(err, rows, fields) {
@@ -546,7 +546,7 @@ io.on('connection', function (socket) {
 		  database : config.db
 		});
 	 
-	  var sql = "SELECT Members.`MemberId`,Members.`FirstName`, Members.`LastName`,Members.`IsAdmin`, `profile_image`, ChatMessages.*,(SELECT COUNT(*) FROM ChatMessages WHERE member_id=Members.`MemberId` AND `read`=0) AS `total` FROM ChatMessages INNER JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) WHERE IsAdmin IS NULL  AND `date_sent` > DATE_SUB(NOW(), INTERVAL 5 DAY)GROUP BY ChatMessages.`member_id`,domain ORDER BY msg_id DESC";
+	  var sql = "SELECT Members.`MemberId`,Members.`FirstName`,Members.`Username`, Members.`LastName`,Members.`IsAdmin`, `profile_image`, ChatMessages.*,(SELECT COUNT(*) FROM ChatMessages WHERE member_id=Members.`MemberId` AND `read`=0) AS `total` FROM ChatMessages INNER JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) WHERE IsAdmin IS NULL  AND `date_sent` > DATE_SUB(NOW(), INTERVAL 5 DAY)GROUP BY ChatMessages.`member_id`,domain ORDER BY msg_id DESC";
 		
 	 
 	connection.query(sql, function(err, rows, fields) {
@@ -609,7 +609,7 @@ io.on('connection', function (socket) {
 				  database : config.db
 				});
 			 
-			var sql = "SELECT `ChatMessages`.*, Members.`FirstName`, `profile_image` FROM `ChatMessages` INNER JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) WHERE room = "+room+" ORDER BY msg_id";
+			var sql = "SELECT `ChatMessages`.*, Members.`FirstName`,Members.`Username`, `profile_image` FROM `ChatMessages` INNER JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) WHERE room = "+room+" ORDER BY msg_id";
 			 
 			connection.query(sql, function(err, rows, fields) {
 			    if (err) throw err;
@@ -639,7 +639,7 @@ io.on('connection', function (socket) {
 		  database : config.db
 		});
 	 
-	  var sql = "SELECT Members.`MemberId`,Members.`FirstName`, Members.`LastName`,Members.`IsAdmin`, `profile_image`, ChatMessages.*,(SELECT COUNT(*) FROM ChatMessages WHERE member_id=Members.`MemberId` AND `read`=0) AS `total` FROM ChatMessages INNER JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) WHERE IsAdmin IS NULL  AND `date_sent` > DATE_SUB(NOW(), INTERVAL 5 DAY)GROUP BY ChatMessages.`member_id`,domain ORDER BY msg_id DESC";
+	  var sql = "SELECT Members.`MemberId`,Members.`FirstName`,Members.`Username`, Members.`LastName`,Members.`IsAdmin`, `profile_image`, ChatMessages.*,(SELECT COUNT(*) FROM ChatMessages WHERE member_id=Members.`MemberId` AND `read`=0) AS `total` FROM ChatMessages INNER JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`) WHERE IsAdmin IS NULL  AND `date_sent` > DATE_SUB(NOW(), INTERVAL 5 DAY)GROUP BY ChatMessages.`member_id`,domain ORDER BY msg_id DESC";
 	 
 	connection.query(sql, function(err, rows, fields) {
 	    if (err) throw err;
