@@ -1057,6 +1057,11 @@ jQuery(function() {
 			 $('.login-page').hide();
 			 $('.register-page').show();
   });
+
+  $(document).on('click', '.btnBack', function(e) {
+	  		 $('.login-page').show();
+			 $('.register-page').hide();
+  });
   
   $(document).on('click', '.btnSubmitRegister', function(e) { 
 	    $('.warningMessage_re').hide();
