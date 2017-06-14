@@ -1243,7 +1243,7 @@ jQuery(function() {
 	  jQuery('.usernameInput').val('');
 	  jQuery('.passwordInput').val('');
 	  jQuery('.close-header-btn').removeClass('btnExit');
-	  jQuery('.close-header-btn').hide();
+	  jQuery('.close-header-btn').addClass('hide');
 	  jQuery('.msg-unread-counter-active').hide();
 	  jQuery('.msg-sheet-content-container').show();
 	  jQuery('.btnLogin').attr('disabled',false);	
