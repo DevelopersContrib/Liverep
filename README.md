@@ -1,6 +1,8 @@
 
 # LiveRep Chat
 
+[![Join the chat at https://gitter.im/DevelopersContrib/Liverep](https://badges.gitter.im/DevelopersContrib/Liverep.svg)](https://gitter.im/DevelopersContrib/Liverep?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A simple live chat demo for liverep.com
 
 ## How to use
