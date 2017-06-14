@@ -1246,9 +1246,8 @@ jQuery(function() {
 	  jQuery('.msg-unread-counter-active').hide();
 	  jQuery('.msg-sheet-content-container').show();
 	  jQuery('.btnLogin').attr('disabled',false);	
-	  jQuery('.msg-header-dropdown').addClass('hide');
 	  jQuery('.logout-header-a').removeClass('btnExit');
-	  jQuery('.close-header-btn.settings').trigger('click');
+	  jQuery('.settings').trigger('click');
 	  $loginPage.show();
 	  jQuery('.menu-header-btn').removeClass('btnOnline');
 
