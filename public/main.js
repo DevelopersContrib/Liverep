@@ -217,6 +217,7 @@ jQuery(function() {
       // jQuery('.close-header-btn').addClass('btnExit');
       // jQuery('.close-header-btn').show();
       
+      jQuery('.close-header-btn').removeClass('hide');
       jQuery('.msg-header-dropdown').removeClass('hide');
       jQuery('.logout-header-a').addClass('btnExit');
 
