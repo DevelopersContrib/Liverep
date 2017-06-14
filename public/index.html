@@ -54,9 +54,28 @@
 							<span class="relative-time-in-text">Last active 4 hours ago</span>
 						</div>
 					</div>
-					<a class="close-header-btn" href="javascript:;" title="Sign-out" style="display: none;">
+					<!-- <a class="close-header-btn" href="javascript:;" title="Sign-out" style="display: none;">
 						<i class="fa fa-sign-out"></i>
-					</a>
+					</a> -->
+					<div class="msg-header-dropdown">
+						<a href="javascript:;" class="close-header-btn settings">
+							<i class="fa fa-cog"></i>
+						</a>
+						<ul class="msg-dropdown-ul">
+							<li>
+								<a href="" class="account-settings-msg">
+									<i class="fa fa-user"></i>
+									Account Settings
+								</a>
+							</li>
+							<li>
+								<a href="" class="logout-header-a">
+									<i class="fa fa-sign-out"></i>
+									Logout
+								</a>
+							</li>
+						</ul>
+					</div>
 					<a href="javascript:;" class="minimize-header-btn" title="minimize" >
 						<i class="fa fa-minus"></i>
 					</a>
@@ -65,15 +84,15 @@
 				<div class="msg-sheet-content">
 					<div class="msg-sheet-content-container">
 						<ul class="pages">
-						    <li class="chat-page">
-						    	<div class="chatArea">
-							        <div class="msg-conversation-parts-container ">
+							<li class="chat-page">
+								<div class="chatArea">
+									<div class="msg-conversation-parts-container ">
 										<div class="msg-conversation-parts messages"></div>
-								    </div>
-								    
-						      	</div>
-						    </li>
-						    <li class="login-page">
+									</div>
+									
+								</div>
+							</li>
+							<li class="login-page">
 								<div class="msg-login-container ">
 									<div class="msg-login-header">
 										<i class="fa fa-comments-o fa-5x"></i>
@@ -88,21 +107,20 @@
 									</div>
 									<div class="msg-login-form-group">
 										<div class="submit">
-										    <input type="hidden" name="domain" class="domainInput" value="contrib.com">
+											<input type="hidden" name="domain" class="domainInput" value="contrib.com">
 											<button type="button" class="btnLogin msg-login-btn msg-login-btn-primary msg-login-btn-block" name="commit">
 												<i class="fa fa-lock"></i>
 												Login
 											</button>
 											<br>
-  											<button type="button" class="btnFReg msg-login-btn msg-login-btn-success msg-login-btn-block" name="regstr">
-											  Register
+											<button type="button" class="btnFReg msg-login-btn msg-login-btn-success msg-login-btn-block" name="regstr">
+												Register
 											</button>
 										</div>
 									</div>
 								</div>
-						    </li>
-						    
-						    <li class="register-page" style="display:none">
+							</li>
+							<li class="register-page" style="display:none">
 								<div class="msg-login-container ">
 									<div class="msg-login-header">
 										<i class="fa fa-comments-o fa-5x"></i>
@@ -122,7 +140,7 @@
 									</div>
 									<div class="msg-login-form-group">
 										<div class="submit">
-										    <input type="hidden" name="domain" class="domainInput" value="contrib.com">
+											<input type="hidden" name="domain" class="domainInput" value="contrib.com">
 											<button type="button" class="btnSubmitRegister msg-login-btn msg-login-btn-primary msg-login-btn-block" name="commit">
 												<i class="fa fa-lock"></i>
 												Register
@@ -130,7 +148,7 @@
 										</div>
 									</div>
 								</div>
-						    </li>
+							</li>
 						</ul> 
 						<!-- Starting Conversation -->    
 						<!-- Messaging -->
@@ -138,10 +156,57 @@
 					</div>
 					
 					<!--display people  -->
-				<div class="msg-list-people-container" style="display:none">
-			       
-               </div>
-					
+					<div class="msg-list-people-container" style="display:none">
+					</div>
+					<!-- Account Settings add ".hide" to hide -->
+					<div class="msg-account-setting-container">
+						<div class="msg-account-settings-content">
+							<h3>Account Settings</h3>
+							<div class="msg-account-settings-form-group">
+								<label for="">
+									First Name:
+								</label>
+								<input type="text" class="msg-account-settings-form-control" />
+							</div>
+							<div class="msg-account-settings-form-group">
+								<label for="">
+									Last Name:
+								</label>
+								<input type="text" class="msg-account-settings-form-control" />
+							</div>
+							<div class="msg-account-settings-form-group">
+								<label for="">
+									Username:
+								</label>
+								<input type="text" class="msg-account-settings-form-control" />
+							</div>
+							<div class="msg-account-settings-form-group">
+								<label for="">
+									Password:
+								</label>
+								<input type="password" class="msg-account-settings-form-control" />
+							</div>
+							<div class="msg-account-settings-form-group">
+								<label for="">
+									Image URL:
+								</label>
+								<input type="text" class="msg-account-settings-form-control" />
+							</div>
+							<div class="msg-account-settings-form-group"></div>
+							<div class="msg-account-settings-form-group">
+								<button type="button" class=" msg-login-btn msg-login-btn-primary msg-login-btn-block">
+									<i class="fa fa-check"></i>
+									Save
+								</button>
+							</div>
+							<div class="msg-account-settings-form-group">
+								<button type="button" class=" msg-login-btn msg-login-btn-danger msg-login-btn-block">
+									<i class="fa fa-ban"></i>
+									Cancel
+								</button>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="msg-composer-container" style="display:none">
 					<form class="msg-composer">
@@ -152,7 +217,7 @@
 						</div>
 						
 					</form>
-                </div>   
+				</div>   
 				<div class="msg-sheet-footer msg-conversations-footer hide">
 					<a href="" class="msg-conversations-new-conversation-button" href="#">
 						<i class="fa fa-edit"></i>

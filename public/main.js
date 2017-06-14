@@ -1248,11 +1248,21 @@ jQuery(function() {
 	  jQuery('.menu-header-btn').removeClass('btnOnline');
   });
   
-  
-  
   jQuery(document).on('click', '.btnOnline', function(e) {
 	  messaging = false;
 	  socket.emit('refreshlist');
+  });
+
+  $('.settings').click(function() {
+     var clicks = $(this).data('clicks');
+     if (clicks) {
+      // odd clicks
+      $(this).parents('.msg-header-dropdown').find('.msg-dropdown-ul').hide();
+     } else {
+      // even clicks
+      $(this).parents('.msg-header-dropdown').find('.msg-dropdown-ul').show();
+     }
+     $(this).data("clicks", !clicks);
   });
   
   
