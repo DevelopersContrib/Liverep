@@ -214,8 +214,12 @@ jQuery(function() {
 	      socket.emit('add user', username,avatar,room,isadmin,domain,isguest,hidemess);
 	  }
       
-      jQuery('.close-header-btn').addClass('btnExit');
-      jQuery('.close-header-btn').show();
+      // jQuery('.close-header-btn').addClass('btnExit');
+      // jQuery('.close-header-btn').show();
+      
+      jQuery('.msg-header-dropdown').removeClass('hide');
+      jQuery('.logout-header-a').addClass('btnExit');
+
       jQuery('.msg-loader-img-container').hide();
       $loginPage.hide();
      
