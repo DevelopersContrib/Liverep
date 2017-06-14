@@ -363,8 +363,6 @@ jQuery(function() {
 			  }
 		  
 		  
-		  
-		  
 	  }
 	  
      if (connected){
