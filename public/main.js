@@ -1058,9 +1058,26 @@ jQuery(function() {
 			 $('.register-page').show();
   });
 
-  $(document).on('click', '.btnBack', function(e) {
+ $(document).on('click', '.btnBack', function(e) {
 	  		 $('.login-page').show();
 			 $('.register-page').hide();
+ });
+
+
+  // back on the main setting
+
+ $(document).on('click', '.btnCancel', function(e) {
+		$('.msg-conversation-parts-container').show();
+		$('.msg-composer-container').show();
+		$('.msg-account-setting-container')removeClass('hide');
+ });
+
+  // account setting shows
+  
+  $(document).on('click','.account-settings-msg', function(e){
+		$('.msg-conversation-parts-container').hide();
+		$('.msg-composer-container').hide();
+		$('.msg-account-setting-container')addClass('hide');
   });
   
   $(document).on('click', '.btnSubmitRegister', function(e) { 
