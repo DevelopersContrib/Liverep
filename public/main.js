@@ -1088,23 +1088,30 @@ $(document).on('click', '.btnregister_a', function(e) {
   	var password = $('.txtPassword').val();
   	var imageurl = $('.txtImageurl').val();
   	var imageRegex = /^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/;
+  	var counter = 0;
 
   	if (firstname == '') {
-  		
   		$('.txtClassError').html('FirstName is Empty').removeClass('hide');
+  		counter++;
   	}else if(lastname == '') {
 		console.log('lastname is empty');
 		$('.txtClassError').html('Last Name is Empty').removeClass('hide');
+		counter++;
   	}else if(username == '') {
 		$('.txtClassError').html('User Name is Empty').removeClass('hide');
+		counter++;
   	}else if(password == '') {
 		$('.txtClassError').html('Password is Empty').removeClass('hide');
+		counter++;
   	} else if(password.length < 6) {
 		$('.txtClassError').html('Password is too Short').removeClass('hide');
+		counter++;
   	}else if(imageurl == '') {
 		$('.txtClassError').html('Image Url is Empty').removeClass('hide');
+		counter++;
   	}else if(!imageRegex.test(imageurl)) {
 		$('.txtClassError').html('Image Url is Invalid').removeClass('hide');
+		counter++;
   	}else {
 		
 		$('.txtClassError').html('Image Url is Invalid').addClass('hide');
