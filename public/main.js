@@ -1067,7 +1067,6 @@ jQuery(function() {
 		$('.msg-conversation-parts-container').removeClass('hide');
 		$('.msg-composer-container').removeClass('hide');
 		$('.msg-account-setting-container').addClass('hide');
-		jQuery('.settings').trigger('click');
  });
 
   // account setting shows
@@ -1104,7 +1103,7 @@ jQuery(function() {
   		 }else {
 
   		 	var data = {
-  		 		userid:userid
+  		 		userid:userid,
   		 		firstname:firstname,
   		 		lastname:lastname,
   		 		username:username,
