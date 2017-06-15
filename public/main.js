@@ -183,7 +183,6 @@ jQuery(function() {
       jQuery.session.set('isadmin', isadmin);
       jQuery.session.set('userid', userid);
       
-      
       connected = true;
       
       room = userid;
@@ -1078,6 +1077,46 @@ jQuery(function() {
 		$('.msg-account-setting-container').removeClass('hide');
 		jQuery('.settings').trigger('click');
   });
+
+  $(document).on('click', '.btnSaveUpdate', function(e){
+
+  		 $(this).prop('disabled', true);
+  		 var userid = jQuery.session.get('userid');
+  		 var firstname = $('.txtFirstname').val();
+  		 var lastname = $('.txtLastname').val();
+  		 var username = $('.txtUsername').val();
+  		 var password = $('.txtPassword').val();
+  		 var imageurl = $('.txtImageurl').val();
+  		 var imageRegex = /^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/;
+
+  		 if (firstname == '') {
+
+  		 }else if(lastname == '') {
+
+  		 }else if(username == '') {
+
+  		 }else if(password == '') {
+
+  		 }else if(imageurl == '') {
+
+  		 }else if(!imageRegex.test(imageurl)) {
+
+  		 }else {
+
+  		 	var data = {
+  		 		userid:userid
+  		 		firstname:firstname,
+  		 		lastname:lastname,
+  		 		username:username,
+  		 		password:password,
+  		 		imageurl:imageurl,
+  		 	};
+
+  		 	console.log(data);
+  		 	// socket.emit('updateaccount', data);
+  		 }
+
+  });
   
   $(document).on('click', '.btnSubmitRegister', function(e) { 
 	    $('.warningMessage_re').hide();
@@ -1160,9 +1199,7 @@ jQuery(function() {
 		      $msgComposer.show();
 		      $loginPage.off('click');
 		      $currentInput = $inputMessage.focus();
-		    
 		      //add user to own room
-		    
 		  }
 	      
     	  if (hasguestlog === true){
@@ -1198,8 +1235,6 @@ jQuery(function() {
   	  }
   });
   
-  
-  
   jQuery(document).on('click', '.joinRoom', function(e) { 
 	  var id = jQuery(this).attr('id');
 	  var uname = jQuery(this).attr('title');
@@ -1207,7 +1242,6 @@ jQuery(function() {
 	  rid = parseInt(rid);
 	  joinRoom(rid,uname);
   });
-  
   
   jQuery(document).on('click', '.mdelete', function(e) { 
 	  var id = jQuery(this).attr('id');
@@ -1225,7 +1259,6 @@ jQuery(function() {
 	  	jQuery('#msgcontent_'+msg_id).hide();
 	  	jQuery('#msgeditcontent_'+msg_id).fadeIn();
 	  	jQuery(this).closest('.mmanage').hide();
-
 	});
   
   jQuery(document).on('keypress', '.editText', function(event) { 
@@ -1242,9 +1275,6 @@ jQuery(function() {
 		  }
       }
   });
-  
-  
-  
   
   jQuery(document).on('click', '.btnExit' , function(e) { 
   
@@ -1302,10 +1332,7 @@ jQuery(function() {
 		  jQuery(this).find('.mmanage').hide();
 	});*/
 	
- 
-
   // Socket events
-  
   
   socket.on('registered', function (data) {
 	  $('.btnSubmitRegister').prop('disabled', false);
@@ -1327,7 +1354,6 @@ jQuery(function() {
   socket.on('authenticated', function (data) {
 	  setUsername(data.username,data.avatar,data.exist,data.isadmin,data.userid);
   });
-
   
   socket.on("update", function(msg,isnew,rows,domain) {
 	  log4 (msg,isnew,rows,domain);
@@ -1363,7 +1389,7 @@ jQuery(function() {
   //execute get rooms
   socket.on('listrooms', function (data) {
 	       showRooms(data.people,data.rows);
-	  });
+  });
 
   
   // Whenever the server emits 'new message', update the chat body
@@ -1373,10 +1399,8 @@ jQuery(function() {
 
   // Whenever the server emits 'user joined', log it in the chat body
   socket.on('user joined', function (data) {
-	  
 	   log3 (jQuery.session.get('username'),' has joined the conversation');
 	   addParticipantsMessage(data);
-	  
   });
   
   
@@ -1384,8 +1408,6 @@ jQuery(function() {
   socket.on('updatelist', function (data) {
 	 updateOnlineUsers(data.people,data.rows);
  });
-
-  
 
   // Whenever the server emits 'user left', log it in the chat body
   socket.on('user left', function (data) {

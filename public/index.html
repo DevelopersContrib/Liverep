@@ -170,35 +170,41 @@
 								<label for="">
 									First Name:
 								</label>
-								<input type="text" class="msg-account-settings-form-control" />
+								<input type="text" class="txtFirstname msg-account-settings-form-control" />
 							</div>
 							<div class="msg-account-settings-form-group">
 								<label for="">
 									Last Name:
 								</label>
-								<input type="text" class="msg-account-settings-form-control" />
+								<input type="text" class="txtLastname msg-account-settings-form-control" />
 							</div>
 							<div class="msg-account-settings-form-group">
 								<label for="">
 									Username:
 								</label>
-								<input type="text" class="msg-account-settings-form-control" />
+								<input type="text" class="txtUsername msg-account-settings-form-control" />
 							</div>
 							<div class="msg-account-settings-form-group">
 								<label for="">
 									Password:
 								</label>
-								<input type="password" class="msg-account-settings-form-control" />
+								<input type="password" class="txtPassword msg-account-settings-form-control" />
+							</div>
+							<div class="msg-account-settings-form-group">
+								<label for="">
+									Email:
+								</label>
+								<input type="email" class="txtEmail msg-account-settings-form-control" disabled="disabled" />
 							</div>
 							<div class="msg-account-settings-form-group">
 								<label for="">
 									Image URL:
 								</label>
-								<input type="text" class="msg-account-settings-form-control" />
+								<input type="text" class="txtImageurl msg-account-settings-form-control" />
 							</div>
 							<div class="msg-account-settings-form-group"></div>
 							<div class="msg-account-settings-form-group">
-								<button type="button" class=" msg-login-btn msg-login-btn-primary msg-login-btn-block">
+								<button type="button" class="btnSaveUpdate msg-login-btn msg-login-btn-primary msg-login-btn-block">
 									<i class="fa fa-check"></i>
 									Save
 								</button>
@@ -231,7 +237,7 @@
 			</div>
 		</div>
 	</div>
-		
+
 	<!-- 		
 	<ul class="pages">
 	    <li class="chat-page">
@@ -306,23 +312,23 @@
 			
 			$.fn.autoResize = function(options) { 
 				var $this = $(this),
-				    defaultOptions = {
-						animate: {
-							enabled:   false,
-							duration:  100,
-							complete:  null,
-							step:      null
-						},
-						maxHeight:     null
-					};
+				defaultOptions = {
+					animate: {
+						enabled:   false,
+						duration:  100,
+						complete:  null,
+						step:      null
+					},
+					maxHeight:     null
+				};
 				
 				options = (options == undefined) ? {} : options;
 				options = $.extend(true, defaultOptions, options);
 
 				$this.change ( function() { autoSize($this, options); } ) 
-					 .keydown( function() { autoSize($this, options); } ) 
-					 .keyup  ( function() { autoSize($this, options); } )
-					 .focus  ( function() { autoSize($this, options); } );
+				.keydown( function() { autoSize($this, options); } ) 
+				.keyup  ( function() { autoSize($this, options); } )
+				.focus  ( function() { autoSize($this, options); } );
 
 				// No animations on startup
 				startupOptions = options;
@@ -331,11 +337,11 @@
 			};
 
 			$('.msg-texarea').autoResize({
-                maxHeight: '85px'
-            });
-            /*End Auto Resizing Textarea*/
-		
-            /*For logo click*/
+				maxHeight: '85px'
+			});
+			/*End Auto Resizing Textarea*/
+
+			/*For logo click*/
 			var LoginArea = $('.msg-messenger.msg-messenger-active');
 			$('.msg-launcher-button').click(function() {
 				if($(LoginArea).hasClass("hide")){
@@ -367,6 +373,6 @@
 				},1000);
 			});
 		});
-	</script>
+</script>
 </body>
 </html>
