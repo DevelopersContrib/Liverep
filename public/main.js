@@ -1063,20 +1063,17 @@ jQuery(function() {
 			 $('.register-page').hide();
  });
 
-
   // back on the main setting
-
  $(document).on('click', '.btnCancel', function(e) {
-		$('.msg-conversation-parts-container').show();
-		$('.msg-composer-container').show();
+		$('.msg-conversation-parts-container').removeClass('hide');
+		$('.msg-composer-container').removeClass('hide');
 		$('.msg-account-setting-container').removeClass('hide');
  });
 
   // account setting shows
-  
   $(document).on('click', '.account-settings-msg', function(e){
-		$('.msg-conversation-parts-container').hide();
-		$('.msg-composer-container').hide();
+		$('.msg-conversation-parts-container').addClass('hide');
+		$('.msg-composer-container').addClass('hide');
 		$('.msg-account-setting-container').addClass('hide');
   });
   
