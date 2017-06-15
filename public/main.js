@@ -1067,14 +1067,14 @@ jQuery(function() {
  $(document).on('click', '.btnCancel', function(e) {
 		$('.msg-conversation-parts-container').removeClass('hide');
 		$('.msg-composer-container').removeClass('hide');
-		$('.msg-account-setting-container').removeClass('hide');
+		$('.msg-account-setting-container').addClass('hide');
  });
 
   // account setting shows
   $(document).on('click', '.account-settings-msg', function(e){
 		$('.msg-conversation-parts-container').addClass('hide');
 		$('.msg-composer-container').addClass('hide');
-		$('.msg-account-setting-container').addClass('hide');
+		$('.msg-account-setting-container').removeClass('hide');
   });
   
   $(document).on('click', '.btnSubmitRegister', function(e) { 
