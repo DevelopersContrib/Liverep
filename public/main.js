@@ -1080,7 +1080,7 @@ $(document).on('click', '.btnregister_a', function(e) {
 
   $(document).on('click', '.btnSaveUpdate', function(e){
 
-  	$(this).prop('disabled', true);
+  	
   	var userid = jQuery.session.get('userid');
   	var firstname = $('.txtFirstname').val();
   	var lastname = $('.txtLastname').val();
@@ -1113,7 +1113,8 @@ $(document).on('click', '.btnregister_a', function(e) {
 		$('.txtClassError').html('Image Url is Invalid').removeClass('hide');
 		counter++;
   	}else {
-		
+  		
+		$(this).prop('disabled', true);
 		$('.txtClassError').html('Image Url is Invalid').addClass('hide');
   		var data = {
   			userid:userid,
