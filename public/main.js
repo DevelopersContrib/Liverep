@@ -986,10 +986,12 @@ function log4 (message, options,rows,domain) {
     return COLORS[index];
 }
 
+// Gets the Details of User
+function getPopulateDetails() {
+		//viewuserdetails
+}
+
   // Keyboard events
-
-
-
   $inputMessage.on('input', function() {
   	updateTyping();
   });
@@ -1043,11 +1045,11 @@ function log4 (message, options,rows,domain) {
   });
   
 
-	// button to show the registration form
-	$(document).on('click', '.btnregister_a', function(e) { 
-		$('.login-page').hide();
-		$('.register-page').show();
-	});
+// button to show the registration form
+$(document).on('click', '.btnregister_a', function(e) { 
+	$('.login-page').hide();
+	$('.register-page').show();
+});
 
  // button to show the registration form
  $(document).on('click', '.btnFReg', function(e) { 
@@ -1088,19 +1090,24 @@ function log4 (message, options,rows,domain) {
   	var imageRegex = /^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/;
 
   	if (firstname == '') {
-  		console.log('firstname is empty');
+  		
+  		$('.txtClassError').html('FirstName is Empty').removeClass('hide');
   	}else if(lastname == '') {
 		console.log('lastname is empty');
+		$('.txtClassError').html('Last Name is Empty').removeClass('hide');
   	}else if(username == '') {
-		console.log('username is empty');
+		$('.txtClassError').html('User Name is Empty').removeClass('hide');
   	}else if(password == '') {
-		console.log('password is empty');
+		$('.txtClassError').html('Password is Empty').removeClass('hide');
+  	} else if(password.length < 6) {
+		$('.txtClassError').html('Password is too Short').removeClass('hide');
   	}else if(imageurl == '') {
-		console.log('imageurl is empty');
+		$('.txtClassError').html('Image Url is Empty').removeClass('hide');
   	}else if(!imageRegex.test(imageurl)) {
-		console.log('image is not valid');
+		$('.txtClassError').html('Image Url is Invalid').removeClass('hide');
   	}else {
-
+		
+		$('.txtClassError').html('Image Url is Invalid').addClass('hide');
   		var data = {
   			userid:userid,
   			firstname:firstname,
@@ -1110,18 +1117,14 @@ function log4 (message, options,rows,domain) {
   			imageurl:imageurl,
   		};
 
-  		//console.log(data);
-  		//socket.emit('updateaccount', data);
-  		objecttostring(data);
-  		
+  		console.log(data);
+  		 //socket.emit('updateaccount', data);
+  		 // objecttostring(data);
+
   		 }
 
   	});
 
-function objecttostring(data) {
-	console.log(data.userid);
-}
-  
   $(document).on('click', '.btnSubmitRegister', function(e) { 
   	$('.warningMessage_re').hide();
   	$('.warningMessage_ru').hide();
@@ -1353,6 +1356,10 @@ $(document).on('keypress', '.regPasswordInput', function(e) {
   	}
   });
 
+
+socket.on('viewuserdetails', function(data){
+
+});
   
 //Whenever the server emits 'authenticated', log user
 socket.on('authenticated', function (data) {
