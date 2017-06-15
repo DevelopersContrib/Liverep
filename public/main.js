@@ -1068,6 +1068,7 @@ jQuery(function() {
 		$('.msg-conversation-parts-container').removeClass('hide');
 		$('.msg-composer-container').removeClass('hide');
 		$('.msg-account-setting-container').addClass('hide');
+		jQuery('.settings').trigger('click');
  });
 
   // account setting shows
@@ -1075,6 +1076,7 @@ jQuery(function() {
 		$('.msg-conversation-parts-container').addClass('hide');
 		$('.msg-composer-container').addClass('hide');
 		$('.msg-account-setting-container').removeClass('hide');
+		jQuery('.settings').trigger('click');
   });
   
   $(document).on('click', '.btnSubmitRegister', function(e) { 
