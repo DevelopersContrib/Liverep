@@ -1069,15 +1069,15 @@ jQuery(function() {
  $(document).on('click', '.btnCancel', function(e) {
 		$('.msg-conversation-parts-container').show();
 		$('.msg-composer-container').show();
-		$('.msg-account-setting-container')removeClass('hide');
+		$('.msg-account-setting-container').removeClass('hide');
  });
 
   // account setting shows
   
-  $(document).on('click','.account-settings-msg', function(e){
+  $(document).on('click', '.account-settings-msg', function(e){
 		$('.msg-conversation-parts-container').hide();
 		$('.msg-composer-container').hide();
-		$('.msg-account-setting-container')addClass('hide');
+		$('.msg-account-setting-container').addClass('hide');
   });
   
   $(document).on('click', '.btnSubmitRegister', function(e) { 
