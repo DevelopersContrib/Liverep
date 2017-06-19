@@ -259,7 +259,7 @@ socket.on('get user details', function (userid) {
 
 	var exist = 0;
 	var sql = "SELECT * FROM Members WHERE Members.`MemberId` = '"+userid+"'";
-	
+	var error = false;
 	connection.query(sql, function(err, rows, fields){
 		console.log(rows.length);
 
@@ -269,21 +269,18 @@ socket.on('get user details', function (userid) {
 
 		if (!err) {
 
-	 	for (var i = 0; i < rows.length; i++) {
+			for (var i = 0; i < rows.length; i++) {
 				
 				var username = rows[i].Username;
 				var avatar = rows[i].profile_image;
 				var lastname = rows[i].LastName;
 				var firstname = rows[i].FirstName;
 				var password = rows[i].Password;
-				var email = rows[i].email;
+				var email = rows[i].EmailAddress;
 			};
 
-			var error = '';
-
 		} else {
-			var error = 'error'; 
-			throw err;
+			error = true;
 		}
 
 		socket.emit('get member details', { 
