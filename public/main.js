@@ -1128,19 +1128,16 @@ $(document).on('click', '.btnregister_a', function(e) {
 
 	function getdetails(userid) {
 		socket.emit('get user details', userid);
-		console.log(userid);
 	}
 
 	socket.on('get member details', function(data) {
-		console.log(data.firstname);
-		alert(data.firstname);
-
-		var firstname = $('.txtFirstname').val(data.firstname);
-		var lastname = $('.txtLastname').val(data.lastname);
-		var username = $('.txtUsername').val(data.username);
-		var password = $('.txtPassword').val(data.password);
-		var imageurl = $('.txtImageurl').val(data.avatar);
-		var imageurl = $('.txtEmail').val(data.avatar);
+	
+		 $('.txtFirstname').val(data.firstname);
+	  	 $('.txtLastname').val(data.lastname);
+		 $('.txtUsername').val(data.username);
+		 $('.txtPassword').val(data.password);
+		 $('.txtImageurl').val(data.avatar);
+		 $('.txtEmail').val(data.email);
 	});
 
 	$(document).on('click', '.btnSubmitRegister', function(e) { 

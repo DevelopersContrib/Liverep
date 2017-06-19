@@ -275,6 +275,7 @@ socket.on('get user details', function (userid) {
 				var avatar = rows[i].profile_image;
 				var lastname = rows[i].LastName;
 				var firstname = rows[i].FirstName;
+				var password = rows[i].Password;
 				var email = rows[i].email;
 			};
 
@@ -291,6 +292,7 @@ socket.on('get user details', function (userid) {
 			lastname:lastname,
 			firstname:firstname,
 			email:email,
+			password:password,
 			error:error
 		}); 
 
