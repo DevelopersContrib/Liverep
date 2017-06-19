@@ -269,21 +269,20 @@ socket.on('get user details', function (userid) {
 
 		if (!err) {
 
-			for (var i = 0; i < rows.length; i++) {
+	 	for (var i = 0; i < rows.length; i++) {
 				
 				var username = rows[i].Username;
 				var avatar = rows[i].profile_image;
 				var lastname = rows[i].LastName;
 				var firstname = rows[i].FirstName;
-				// password = rows[i].Password;
 				var email = rows[i].email;
 			};
-			
+
 			var error = '';
-			
+
 		} else {
 			var error = 'error'; 
-			console.log('error');
+			throw err;
 		}
 
 		socket.emit('get member details', { 
@@ -423,7 +422,7 @@ socket.on('get user details', function (userid) {
   	var sql = "SELECT `ChatMessages`.*, Members.`Username`, `profile_image` FROM `ChatMessages` LEFT JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`)  WHERE room = "+room+" ORDER BY msg_id LIMIT 1";
 
   	connection.query(sql, function(err, rows, fields) {
-  		
+
   		if (err) throw err;
   		for (var i in rows) {
 

@@ -1127,7 +1127,7 @@ $(document).on('click', '.btnregister_a', function(e) {
 	//socket.on('getdetails', userid:userid );
 
 	function getdetails(userid) {
-		socket.emist('get user details', userid);
+		socket.emit('get user details', userid);
 		console.log(userid);
 	}
 
