@@ -274,22 +274,32 @@ socket.on('getuserdetails', function(userid) {
 
 			for (var i = 0; i < rows.length; i++) {
 				
-				data.username = rows[i].Username;
-				data.avatar = rows[i].profile_image;
-				data.lastname = rows[i].LastName;
-				data.firstname = rows[i].FirstName;
-				data.password = rows[i].Password;
-				data.email = rows[i].email;
+				username = rows[i].Username;
+				avatar = rows[i].profile_image;
+				lastname = rows[i].LastName;
+				firstname = rows[i].FirstName;
+				password = rows[i].Password;
+				email = rows[i].email;
 			};
 	
 			data.error = 0;
 	
 		} else {
-
 			data.error = 1;
-	
+			console.log('error');
 		}
-		console.log(data);
+
+		var loges = {
+			'username':username,
+			'avatar':avatar,
+			'lastname':lastname,
+			'firstname':firstname,
+			'password':password,
+			'email':email,
+			'error':data.error
+		};
+
+		console.log(loges);
 		console.log('enter here');
 		//socket.emit('viewuserdetails', { data });
 	
