@@ -301,6 +301,7 @@ socket.on('getuserdetails', function (userid) {
 
 		console.log(loges);
 		console.log('enter here');
+		socket.emit('getmemberdetails', loges);
 
 	}); // end of conection query
 	connection.end();
