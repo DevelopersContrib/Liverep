@@ -259,16 +259,8 @@ socket.on('update user', function(firstname,lastname,username,password,profile_i
 		database : config.db
 	});
 
-	var sql = "UPDATE Members SET FirstName = '"+firstname+"', LastName = '"+lastname+"', Username = '"+username+"', Password = '"+password+"', profile_image = '"+profile_image+"' WHERE MemberId = '"+userid+"'";
-	connection.query(sql, function(err, rows, fields) {
-		if (!err) {
-			console.log('good');
-		}else {
-			console.log('bad');
-		}
-	});
-
-
+	var sql = "UPDATE Members SET FirstName = '"+firstname+"', LastName = '"+lastname+"', Username = '"+username+"', Password = '"+password+"', profile_image = '"+profile_image+"' WHERE MemberId = '"+userid+"' ";
+	connection.query(sql);
 	connection.end();
 });
 
