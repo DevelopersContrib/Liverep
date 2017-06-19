@@ -1130,14 +1130,20 @@ $(document).on('click', '.btnregister_a', function(e) {
 	//socket.on('getdetails', userid:userid );
 
   function getdetails(userid) {
-	var asd = socket.emit('get user details', userid);
-	console.log(userid);
-	console.log(asd);
+	 socket.emit('get user details', userid);
+	 console.log(userid);
   }
 
   socket.on('get member details', function(data) {
 	  	console.log(data.firstname);
 	  	alert(data.firstname);
+
+	  	var firstname = $('.txtFirstname').val(data.firstname);
+	  	var lastname = $('.txtLastname').val(data.lastname);
+	  	var username = $('.txtUsername').val(data.username);
+	  	var password = $('.txtPassword').val(data.password);
+	  	var imageurl = $('.txtImageurl').val(data.avatar);
+	  	var imageurl = $('.txtEmail').val(data.avatar);
   });
 
   $(document).on('click', '.btnSubmitRegister', function(e) { 
@@ -1371,20 +1377,6 @@ socket.on('registered', function (data) {
 	}
 });
 
-socket.on('viewuserdetails', function(data){
-
-	if (data.error === "") {
-  
-	} else {
-		var firstname = $('.txtFirstname').val(data.firstname);
-	  	var lastname = $('.txtLastname').val(data.lastname);
-	  	var username = $('.txtUsername').val(data.username);
-	  	var password = $('.txtPassword').val(data.password);
-	  	var imageurl = $('.txtImageurl').val(data.avatar);
-	  	var imageurl = $('.txtEmail').val(data.avatar);
-	}
-
-});
 	  
 //Whenever the server emits 'authenticated', log user
 socket.on('authenticated', function (data) {
