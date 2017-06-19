@@ -1130,11 +1130,11 @@ $(document).on('click', '.btnregister_a', function(e) {
 	//socket.on('getdetails', userid:userid );
 
   function getdetails(userid) {
-	 socket.emit('getuserdetails', userid);
+	 socket.emit('get user details', userid);
 	console.log(userid);
   }
 
-  socket.on('getmemberdetails', function(data) {
+  socket.on('get member details', function(data) {
 	  	console.log(data);
   });
 

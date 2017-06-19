@@ -248,9 +248,7 @@ socket.on('updatemessage', function (msg_id,msg) {
 });
 
 // function to call in account setting
-socket.on('getuserdetails', function (userid) {
-	
-	console.log('hello');
+socket.on('get user details', function (userid) {
 
 	var connection = mysql.createConnection({
 			host     : config.dbhost,
@@ -261,7 +259,6 @@ socket.on('getuserdetails', function (userid) {
 
 	var exist = 0;
 	var sql = "SELECT * FROM Members WHERE Members.`MemberId` = '"+userid+"'";
-	//var sql = "SELECT * from Members where MemberId = '"+userid+"' ";
 	var data = new Object();
 	
 	connection.query(sql, function(err, rows, fields){
