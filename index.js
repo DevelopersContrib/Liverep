@@ -260,7 +260,8 @@ socket.on('getuserdetails', function (userid) {
 	});
 
 	var exist = 0;
-	var sql = "SELECT * from Members where MemberId = '"+userid+"' ";
+	var sql = "SELECT * from Members";
+	//var sql = "SELECT * from Members where MemberId = '"+userid+"' ";
 	var data = new Object();
 	
 	connection.query(sql, function(err, rows, fields){
