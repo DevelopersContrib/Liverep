@@ -1111,15 +1111,7 @@ $(document).on('click', '.btnregister_a', function(e) {
   		$('.txtClassError').addClass('hide');
   		console.log('sending update');
   		$(this).prop('disabled', true);
-
-  		socket.emit('update user', {
-  			firstname:firstname,
-  			lastname:lastname,
-  			username:username,
-  			password:password,
-  			profile_image:imageurl,
-  			userid:userid
-  		});
+  		socket.emit('update user', firstname, lastname,	username, password,	imageurl, userid);
   	}
   });
 
