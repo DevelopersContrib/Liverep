@@ -1131,7 +1131,7 @@ $(document).on('click', '.btnregister_a', function(e) {
 
   function getdetails(userid) {
 	socket.emit('getuserdetails', userid);
-	console.log('eit2x');
+	console.log(userid);
   }
 
   $(document).on('click', '.btnSubmitRegister', function(e) { 
