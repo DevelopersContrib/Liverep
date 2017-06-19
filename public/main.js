@@ -1081,7 +1081,6 @@ $(document).on('click', '.btnregister_a', function(e) {
   	var password = $('.txtPassword').val();
   	var imageurl = $('.txtImageurl').val();
   	var imageRegex = /^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/;
-  	//var imageRegex2 = (http(s?):)|([/|.|\w|\s])*\.(?:jpg|gif|png);
 
   	var counter = 0;
 
@@ -1089,91 +1088,90 @@ $(document).on('click', '.btnregister_a', function(e) {
   		$('.txtClassError').html('FirstName is Empty').removeClass('hide');
   		counter++;
   	} else if(lastname == '') {
-		console.log('lastname is empty');
-		$('.txtClassError').html('Last Name is Empty').removeClass('hide');
-		counter++;
+  		console.log('lastname is empty');
+  		$('.txtClassError').html('Last Name is Empty').removeClass('hide');
+  		counter++;
   	} else if(username == '') {
-		$('.txtClassError').html('User Name is Empty').removeClass('hide');
-		counter++;
+  		$('.txtClassError').html('User Name is Empty').removeClass('hide');
+  		counter++;
   	} else if(password == '') {
-		$('.txtClassError').html('Password is Empty').removeClass('hide');
-		counter++;
+  		$('.txtClassError').html('Password is Empty').removeClass('hide');
+  		counter++;
   	} else if(password.length < 6) {
-		$('.txtClassError').html('Password is too Short').removeClass('hide');
-		counter++;
+  		$('.txtClassError').html('Password is too Short').removeClass('hide');
+  		counter++;
   	} else if(imageurl == '') {
-		$('.txtClassError').html('Image Url is Empty').removeClass('hide');
-		counter++;
+  		$('.txtClassError').html('Image Url is Empty').removeClass('hide');
+  		counter++;
   	} else if(!imageRegex.test(imageurl)) {
-		$('.txtClassError').html('Image Url is Invalid').removeClass('hide');
-		counter++;
+  		$('.txtClassError').html('Image Url is Invalid').removeClass('hide');
+  		counter++;
   	} else {
 
-			$(this).prop('disabled', true);
-			$('.txtClassError').html('Image Url is Invalid').addClass('hide');
+  		$(this).prop('disabled', true);
+  		$('.txtClassError').html('Image Url is Invalid').addClass('hide');
 
-	  		var data = {
-	  			userid:userid,
-	  			firstname:firstname,
-	  			lastname:lastname,
-	  			username:username,
-	  			password:password,
-	  			imageurl:imageurl,
-	  		};
+  		var data = {
+  			userid:userid,
+  			firstname:firstname,
+  			lastname:lastname,
+  			username:username,
+  			password:password,
+  			imageurl:imageurl,
+  		};
 
-	  		console.log(data);
-	  		 //socket.emit('updateaccount', data);
-	  		 // objecttostring(data);
-  		 }
-  	});
+  		console.log(data);
+  	}
+  });
 
 	//socket.on('getdetails', userid:userid );
 
-  function getdetails(userid) {
-	 socket.emit('get user details', userid);
-	 console.log(userid);
-  }
+	function getdetails(userid) {
+		socket.emist('get user details', userid);
+		console.log(userid);
+	}
 
-  socket.on('get member details', function(data) {
-	  	console.log(data.firstname);
-	  	alert(data.firstname);
+	socket.on('get member details', function(data) {
+		console.log(data.firstname);
+		alert(data.firstname);
 
-	  	var firstname = $('.txtFirstname').val(data.firstname);
-	  	var lastname = $('.txtLastname').val(data.lastname);
-	  	var username = $('.txtUsername').val(data.username);
-	  	var password = $('.txtPassword').val(data.password);
-	  	var imageurl = $('.txtImageurl').val(data.avatar);
-	  	var imageurl = $('.txtEmail').val(data.avatar);
-  });
+		var firstname = $('.txtFirstname').val(data.firstname);
+		var lastname = $('.txtLastname').val(data.lastname);
+		var username = $('.txtUsername').val(data.username);
+		var password = $('.txtPassword').val(data.password);
+		var imageurl = $('.txtImageurl').val(data.avatar);
+		var imageurl = $('.txtEmail').val(data.avatar);
+	});
 
-  $(document).on('click', '.btnSubmitRegister', function(e) { 
-  	$('.warningMessage_re').hide();
-  	$('.warningMessage_ru').hide();
-  	$('.warningMessage_rp').hide();
-  	$(this).prop('disabled', true);
+	$(document).on('click', '.btnSubmitRegister', function(e) { 
 
-  	var reg_email = $('.regEmailInput').val();
-  	var reg_username = $('.regUsernameInput').val();
-  	var reg_password = $('.regPasswordInput').val();
-  	var emailfilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		$('.warningMessage_re').hide();
+		$('.warningMessage_ru').hide();
+		$('.warningMessage_rp').hide();
+		$(this).prop('disabled', true);
 
-  	if (reg_email == ""){
-  		$('.warningMessage_re').show();
-  		$('.warningMessage_re').html('Please enter email');
-  	}	else if(!emailfilter.test(reg_email)){
-  		$('.warningMessage_re').show();
-  		$('.warningMessage_re').html('Invalid Email Address');
-  	}	else if (reg_username == ''){
-  		$('.warningMessage_ru').show();
-  		$('.warningMessage_ru').html('Please enter username');
-  	}	else if (reg_password == ''){
-  		$('.warningMessage_rp').show();
-  		$('.warningMessage_rp').html('Please enter password');
-  	}else {
-  		socket.emit('register', reg_email,reg_username,reg_password);
-  	}
+		var reg_email = $('.regEmailInput').val();
+		var reg_username = $('.regUsernameInput').val();
+		var reg_password = $('.regPasswordInput').val();
+		var emailfilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
-  });
+		if (reg_email == ""){
+			$('.warningMessage_re').show();
+			$('.warningMessage_re').html('Please enter email');
+		}	else if(!emailfilter.test(reg_email)){
+			$('.warningMessage_re').show();
+			$('.warningMessage_re').html('Invalid Email Address');
+		}	else if (reg_username == ''){
+			$('.warningMessage_ru').show();
+			$('.warningMessage_ru').html('Please enter username');
+		}	else if (reg_password == ''){
+			$('.warningMessage_rp').show();
+			$('.warningMessage_rp').html('Please enter password');
+		}else {
+			socket.emit('register', reg_email,reg_username,reg_password);
+		}
+
+	});
 
 $(document).on('keypress', '.regPasswordInput', function(e) {
 	if ( e.which == 13 ) {
@@ -1340,7 +1338,7 @@ $(document).on('keypress', '.regPasswordInput', function(e) {
   });
 
 
-$('.settings').click(function() {
+  $('.settings').click(function() {
   	var clicks = $(this).data('clicks');
   	if (clicks) {
       // odd clicks
@@ -1362,22 +1360,22 @@ $('.settings').click(function() {
 
   // Socket events
   
-socket.on('registered', function (data) {
-	$('.btnSubmitRegister').prop('disabled', false);
-	$('.warningMessage_re').hide();
-	if (data.error == ""){
-		$('.register-page').fadeOut();
-		$('.login-page').fadeIn();
-		$('.usernameInput').val(data.email);
-		$('.passwordInput').val(data.password);
-		$('.btnLogin').trigger( "click" );
-	}else {
-		$('.warningMessage_re').show();
-		$('.warningMessage_re').html(data.error);
-	}
-});
+  socket.on('registered', function (data) {
+  	$('.btnSubmitRegister').prop('disabled', false);
+  	$('.warningMessage_re').hide();
+  	if (data.error == ""){
+  		$('.register-page').fadeOut();
+  		$('.login-page').fadeIn();
+  		$('.usernameInput').val(data.email);
+  		$('.passwordInput').val(data.password);
+  		$('.btnLogin').trigger( "click" );
+  	}else {
+  		$('.warningMessage_re').show();
+  		$('.warningMessage_re').html(data.error);
+  	}
+  });
 
-	  
+
 //Whenever the server emits 'authenticated', log user
 socket.on('authenticated', function (data) {
 	setUsername(data.username,data.avatar,data.exist,data.isadmin,data.userid);
