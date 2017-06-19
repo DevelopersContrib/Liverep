@@ -1131,13 +1131,15 @@ $(document).on('click', '.btnregister_a', function(e) {
 	}
 
 	socket.on('get member details', function(data) {
-	
+		
+		console.log(data);
 		 $('.txtFirstname').val(data.firstname);
 	  	 $('.txtLastname').val(data.lastname);
 		 $('.txtUsername').val(data.username);
 		 $('.txtPassword').val(data.password);
 		 $('.txtImageurl').val(data.avatar);
 		 $('.txtEmail').val(data.email);
+
 	});
 
 	$(document).on('click', '.btnSubmitRegister', function(e) { 
