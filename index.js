@@ -260,7 +260,7 @@ socket.on('getuserdetails', function (userid) {
 	});
 
 	var exist = 0;
-	var sql = "SELECT * from Members";
+	var sql = "SELECT * FROM Members WHERE Members.`MemberId` = '"+userid+"'";
 	//var sql = "SELECT * from Members where MemberId = '"+userid+"' ";
 	var data = new Object();
 	
@@ -299,7 +299,7 @@ socket.on('getuserdetails', function (userid) {
 			'email':email,
 			'error':data.error
 		};
-
+		alert('hello im here in getmemberdetails')
 		console.log(loges);
 		console.log('enter here');
 		socket.emit('getmemberdetails', loges);
