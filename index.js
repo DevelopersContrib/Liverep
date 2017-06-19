@@ -272,36 +272,25 @@ socket.on('get user details', function (userid) {
 
 			for (var i = 0; i < rows.length; i++) {
 				
-				username = rows[i].Username;
-				avatar = rows[i].profile_image;
-				lastname = rows[i].LastName;
-				firstname = rows[i].FirstName;
+				var username = rows[i].Username;
+				var avatar = rows[i].profile_image;
+				var lastname = rows[i].LastName;
+				var firstname = rows[i].FirstName;
 				// password = rows[i].Password;
-				email = rows[i].email;
+				var email = rows[i].email;
 			};
 	
-			data.error = 0;
+			var error = '';
 	
 		} else {
-			data.error = 1;
+			var error = 'error'; 
 			console.log('error');
 		}
 
-		var loges = {
-			'username':username,
-			'avatar':avatar,
-			'lastname':lastname,
-			'firstname':firstname,
-			'password':password,
-			'email':email,
-			'error':data.error
-		};
-		alert('hello im here in getmemberdetails')
-		console.log(loges);
-		console.log('enter here');
-		socket.emit('get member details', username,avatar,lastname,firstname,email);
+		socket.emit('get member details', username,avatar,lastname,firstname,email,error);
 
 	}); // end of conection query
+
 	connection.end();
 });
 
@@ -361,7 +350,7 @@ socket.on('get user details', function (userid) {
 				isadmin:isadmin,
 				userid:userid
 			});
-
+console.log('asdasdasdasd');
 		});
 
 	connection.end();
