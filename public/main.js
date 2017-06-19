@@ -269,8 +269,6 @@ function joinRoom(room,uname){
   	return false;
   }
   
-  
-  
   function showRooms(people,rows){
   	var html = "";
   	var msg_count = 0;
@@ -986,11 +984,6 @@ function log4 (message, options,rows,domain) {
     return COLORS[index];
 }
 
-// Gets the Details of User
-function getPopulateDetails() {
-		//viewuserdetails
-}
-
   // Keyboard events
   $inputMessage.on('input', function() {
   	updateTyping();
@@ -1079,7 +1072,6 @@ $(document).on('click', '.btnregister_a', function(e) {
   });
 
   $(document).on('click', '.btnSaveUpdate', function(e){
-
   	
   	var userid = jQuery.session.get('userid');
   	var firstname = $('.txtFirstname').val();
@@ -1088,50 +1080,58 @@ $(document).on('click', '.btnregister_a', function(e) {
   	var password = $('.txtPassword').val();
   	var imageurl = $('.txtImageurl').val();
   	var imageRegex = /^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/;
+  	var imageRegex2 = (http(s?):)|([/|.|\w|\s])*\.(?:jpg|gif|png);
+
+  	getdetails(userid);
+
   	var counter = 0;
 
   	if (firstname == '') {
   		$('.txtClassError').html('FirstName is Empty').removeClass('hide');
   		counter++;
-  	}else if(lastname == '') {
+  	} else if(lastname == '') {
 		console.log('lastname is empty');
 		$('.txtClassError').html('Last Name is Empty').removeClass('hide');
 		counter++;
-  	}else if(username == '') {
+  	} else if(username == '') {
 		$('.txtClassError').html('User Name is Empty').removeClass('hide');
 		counter++;
-  	}else if(password == '') {
+  	} else if(password == '') {
 		$('.txtClassError').html('Password is Empty').removeClass('hide');
 		counter++;
   	} else if(password.length < 6) {
 		$('.txtClassError').html('Password is too Short').removeClass('hide');
 		counter++;
-  	}else if(imageurl == '') {
+  	} else if(imageurl == '') {
 		$('.txtClassError').html('Image Url is Empty').removeClass('hide');
 		counter++;
-  	}else if(!imageRegex.test(imageurl)) {
+  	} else if(!imageRegex.test(imageurl)) {
 		$('.txtClassError').html('Image Url is Invalid').removeClass('hide');
 		counter++;
-  	}else {
-  		
-		$(this).prop('disabled', true);
-		$('.txtClassError').html('Image Url is Invalid').addClass('hide');
-  		var data = {
-  			userid:userid,
-  			firstname:firstname,
-  			lastname:lastname,
-  			username:username,
-  			password:password,
-  			imageurl:imageurl,
-  		};
+  	} else {
 
-  		console.log(data);
-  		 //socket.emit('updateaccount', data);
-  		 // objecttostring(data);
+			$(this).prop('disabled', true);
+			$('.txtClassError').html('Image Url is Invalid').addClass('hide');
 
+	  		var data = {
+	  			userid:userid,
+	  			firstname:firstname,
+	  			lastname:lastname,
+	  			username:username,
+	  			password:password,
+	  			imageurl:imageurl,
+	  		};
+
+	  		console.log(data);
+	  		 //socket.emit('updateaccount', data);
+	  		 // objecttostring(data);
   		 }
-
   	});
+
+	//socket.on('getdetails', userid:userid );
+  function getdetails(userid) {
+	socket.emit('getuserdetails', userid);
+  }
 
   $(document).on('click', '.btnSubmitRegister', function(e) { 
   	$('.warningMessage_re').hide();
@@ -1349,26 +1349,36 @@ $(document).on('keypress', '.regPasswordInput', function(e) {
 
   // Socket events
   
-  socket.on('registered', function (data) {
-  	$('.btnSubmitRegister').prop('disabled', false);
-  	$('.warningMessage_re').hide();
-  	if (data.error == ""){
-  		$('.register-page').fadeOut();
-  		$('.login-page').fadeIn();
-  		$('.usernameInput').val(data.email);
-  		$('.passwordInput').val(data.password);
-  		$('.btnLogin').trigger( "click" );
-  	}else {
-  		$('.warningMessage_re').show();
-  		$('.warningMessage_re').html(data.error);
-  	}
-  });
-
+socket.on('registered', function (data) {
+	$('.btnSubmitRegister').prop('disabled', false);
+	$('.warningMessage_re').hide();
+	if (data.error == ""){
+		$('.register-page').fadeOut();
+		$('.login-page').fadeIn();
+		$('.usernameInput').val(data.email);
+		$('.passwordInput').val(data.password);
+		$('.btnLogin').trigger( "click" );
+	}else {
+		$('.warningMessage_re').show();
+		$('.warningMessage_re').html(data.error);
+	}
+});
 
 socket.on('viewuserdetails', function(data){
 
-});
+	if (data.error === "") {
   
+	} else {
+		var firstname = $('.txtFirstname').val(data.firstname);
+	  	var lastname = $('.txtLastname').val(data.lastname);
+	  	var username = $('.txtUsername').val(data.username);
+	  	var password = $('.txtPassword').val(data.password);
+	  	var imageurl = $('.txtImageurl').val(data.avatar);
+	  	var imageurl = $('.txtEmail').val(data.avatar);
+	}
+
+});
+	  
 //Whenever the server emits 'authenticated', log user
 socket.on('authenticated', function (data) {
 	setUsername(data.username,data.avatar,data.exist,data.isadmin,data.userid);
