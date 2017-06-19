@@ -1082,7 +1082,6 @@ $(document).on('click', '.btnregister_a', function(e) {
   	var imageurl = $('.txtImageurl').val();
   	var imageRegex = /^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/;
 
-
   	var counter = 0;
 
   	if (firstname == '') {
