@@ -279,7 +279,7 @@ socket.on('getuserdetails', function (userid) {
 				avatar = rows[i].profile_image;
 				lastname = rows[i].LastName;
 				firstname = rows[i].FirstName;
-				password = rows[i].Password;
+				// password = rows[i].Password;
 				email = rows[i].email;
 			};
 	
