@@ -250,8 +250,6 @@ socket.on('updatemessage', function (msg_id,msg) {
 
 socket.on('update user', function(firstname,lastname,username,password,profile_image,userid) {
 
-	console.log('updating files');
-
 	var connection = mysql.createConnection({
 		host     : config.dbhost,
 		user     : config.dbuser,
@@ -259,8 +257,6 @@ socket.on('update user', function(firstname,lastname,username,password,profile_i
 		database : config.db
 	});
 
-	///var sql = "UPDATE Members SET FirstName = '"+firstname+"', LastName = '"+lastname+"', Username = '"+username+"', Password = '"+password+"', profile_image = '"+firstname+"' WHERE MemberId = ?";
-	//connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { LastName: lastname }, { Username: username }, { Password: password }, { profile_image: profile_image }, { MemberId: userid }])
 	connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { MemberId: userid }])
 	connection.query('UPDATE Members SET ? WHERE ?', [{ LastName: lastname }, { MemberId: userid }])
 	connection.query('UPDATE Members SET ? WHERE ?', [{ Username: username }, { MemberId: userid }])
