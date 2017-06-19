@@ -247,6 +247,19 @@ socket.on('updatemessage', function (msg_id,msg) {
 	
 });
 
+
+socket.on('update user', function(firstname,lastname,username,password,profile_image,userid) {
+	var connection = mysql.createConnection({
+		host     : config.dbhost,
+		user     : config.dbuser,
+		password : config.dbpassword,
+		database : config.db
+	});
+
+	connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName:firstname, LastName:lastname, Username:username, Password:password, profile_image:profile_image }, { MemberId,:userid }])
+	connection.end();
+});
+
 // function to call in account setting
 socket.on('get user details', function (userid) {
 

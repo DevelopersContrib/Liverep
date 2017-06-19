@@ -1109,18 +1109,18 @@ $(document).on('click', '.btnregister_a', function(e) {
   	} else {
 
   		$(this).prop('disabled', true);
-  		$('.txtClassError').html('Image Url is Invalid').addClass('hide');
+  		console.log(data);
 
-  		var data = {
-  			userid:userid,
+  		socket.emit('update user', {
+
   			firstname:firstname,
   			lastname:lastname,
   			username:username,
   			password:password,
-  			imageurl:imageurl,
-  		};
+  			profile_image:profile_image,
+  			userid:userid
 
-  		console.log(data);
+  		});
   	}
   });
 
@@ -1133,12 +1133,12 @@ $(document).on('click', '.btnregister_a', function(e) {
 	socket.on('get member details', function(data) {
 		
 		console.log(data);
-		 $('.txtFirstname').val(data.firstname);
-	  	 $('.txtLastname').val(data.lastname);
-		 $('.txtUsername').val(data.username);
-		 $('.txtPassword').val(data.password);
-		 $('.txtImageurl').val(data.avatar);
-		 $('.txtEmail').val(data.email);
+		$('.txtFirstname').val(data.firstname);
+		$('.txtLastname').val(data.lastname);
+		$('.txtUsername').val(data.username);
+		$('.txtPassword').val(data.password);
+		$('.txtImageurl').val(data.avatar);
+		$('.txtEmail').val(data.email);
 
 	});
 
