@@ -249,6 +249,9 @@ socket.on('updatemessage', function (msg_id,msg) {
 
 
 socket.on('update user', function(firstname,lastname,username,password,profile_image,userid) {
+
+	console.log('updating files');
+
 	var connection = mysql.createConnection({
 		host     : config.dbhost,
 		user     : config.dbuser,
