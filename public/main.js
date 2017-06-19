@@ -1069,6 +1069,7 @@ $(document).on('click', '.btnregister_a', function(e) {
   	$('.msg-composer-container').addClass('hide');
   	$('.msg-account-setting-container').removeClass('hide');
   	jQuery('.settings').trigger('click');
+  	getdetails(jQuery.session.get('userid'));
   });
 
   $(document).on('click', '.btnSaveUpdate', function(e){
@@ -1081,8 +1082,6 @@ $(document).on('click', '.btnregister_a', function(e) {
   	var imageurl = $('.txtImageurl').val();
   	var imageRegex = /^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/;
   	//var imageRegex2 = (http(s?):)|([/|.|\w|\s])*\.(?:jpg|gif|png);
-
-  	getdetails(userid);
 
   	var counter = 0;
 

@@ -248,7 +248,7 @@ socket.on('updatemessage', function (msg_id,msg) {
 });
 
 // function to call in account setting
-socket.on('getuserdetails', function(userid) {
+socket.on('getuserdetails', function (userid) {
 	
 	console.log('hello');
 
@@ -260,10 +260,10 @@ socket.on('getuserdetails', function(userid) {
 	});
 
 	var exist = 0;
-	var sql = "SELECT * from Members where MemberId = '"+userid+"'";
+	var sql = "SELECT * from Members where MemberId = '"+userid+"' ";
 	var data = new Object();
 	
-	connection.query(sql, function(err,rows,fields){
+	connection.query(sql, function(err, rows, fields){
 	console.log(rows.length);
 
 		if (rows.length > 0) {
@@ -301,7 +301,7 @@ socket.on('getuserdetails', function(userid) {
 
 		console.log(loges);
 		console.log('enter here');
-		
+
 	}); // end of conection query
 	connection.end();
 });
