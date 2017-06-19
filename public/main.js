@@ -1082,6 +1082,7 @@ $(document).on('click', '.btnregister_a', function(e) {
   	var imageurl = $('.txtImageurl').val();
   	var imageRegex = /^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/;
 
+
   	var counter = 0;
 
   	if (firstname == '') {
@@ -1103,23 +1104,22 @@ $(document).on('click', '.btnregister_a', function(e) {
   	} else if(imageurl == '') {
   		$('.txtClassError').html('Image Url is Empty').removeClass('hide');
   		counter++;
-  	} else if(!imageRegex.test(imageurl)) {
+  	} else if(imageRegex.test(imageurl)) {
   		$('.txtClassError').html('Image Url is Invalid').removeClass('hide');
   		counter++;
   	} else {
 
+  		$('.txtClassError').addClass('hide');
+  		console.log('sending update');
   		$(this).prop('disabled', true);
-  		console.log(data);
 
   		socket.emit('update user', {
-
   			firstname:firstname,
   			lastname:lastname,
   			username:username,
   			password:password,
   			profile_image:profile_image,
   			userid:userid
-
   		});
   	}
   });
