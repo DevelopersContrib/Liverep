@@ -259,8 +259,14 @@ socket.on('update user', function(firstname,lastname,username,password,profile_i
 		database : config.db
 	});
 
-	var sql = "UPDATE Members SET FirstName = '"+firstname+"', LastName = '"+lastname+"', Username = '"+username+"', Password = '"+password+"', profile_image = '"+profile_image+"' WHERE MemberId = '"+userid+"' ";
-	connection.query(sql);
+	///var sql = "UPDATE Members SET FirstName = '"+firstname+"', LastName = '"+lastname+"', Username = '"+username+"', Password = '"+password+"', profile_image = '"+firstname+"' WHERE MemberId = ?";
+	//connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { LastName: lastname }, { Username: username }, { Password: password }, { profile_image: profile_image }, { MemberId: userid }])
+	connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { MemberId: userid }])
+	connection.query('UPDATE Members SET ? WHERE ?', [{ LastName: lastname }, { MemberId: userid }])
+	connection.query('UPDATE Members SET ? WHERE ?', [{ Username: username }, { MemberId: userid }])
+	connection.query('UPDATE Members SET ? WHERE ?', [{ Password: password }, { MemberId: userid }])
+	connection.query('UPDATE Members SET ? WHERE ?', [{ profile_image: profile_image }, { MemberId: userid }])
+	
 	connection.end();
 });
 
