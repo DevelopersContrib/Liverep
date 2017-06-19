@@ -250,14 +250,14 @@ socket.on('updatemessage', function (msg_id,msg) {
 // function to call in account setting
 socket.on('getuserdetails', function(userid) {
 	
+	console.log('hello');
+
 	var connection = mysql.createConnection({
 			host     : config.dbhost,
 			user     : config.dbuser,
 			password : config.dbpassword,
 			database : config.db
 	});
-
-	console.log('hello');
 
 	var exist = 0;
 	var sql = "SELECT * from Members where MemberId = '"+userid+"'";
@@ -301,8 +301,7 @@ socket.on('getuserdetails', function(userid) {
 
 		console.log(loges);
 		console.log('enter here');
-		//socket.emit('viewuserdetails', { data });
-	
+		
 	}); // end of conection query
 	connection.end();
 });
