@@ -1118,7 +1118,7 @@ $(document).on('click', '.btnregister_a', function(e) {
   			lastname:lastname,
   			username:username,
   			password:password,
-  			profile_image:profile_image,
+  			profile_image:imageurl,
   			userid:userid
   		});
   	}
