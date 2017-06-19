@@ -1329,7 +1329,7 @@ $(document).on('keypress', '.regPasswordInput', function(e) {
   });
 
 
-  $('.settings').click(function() {
+$('.settings').click(function() {
   	var clicks = $(this).data('clicks');
   	if (clicks) {
       // odd clicks

@@ -257,6 +257,8 @@ socket.on('getuserdetails', function(userid) {
 			database : config.db
 	});
 
+	console.log('hello');
+
 	var exist = 0;
 	var sql = "SELECT * from Members where MemberId = '"+userid+"'";
 	var data = new Object();
