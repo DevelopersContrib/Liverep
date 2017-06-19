@@ -1080,7 +1080,7 @@ $(document).on('click', '.btnregister_a', function(e) {
   	var password = $('.txtPassword').val();
   	var imageurl = $('.txtImageurl').val();
   	var imageRegex = /^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/;
-  	var imageRegex2 = (http(s?):)|([/|.|\w|\s])*\.(?:jpg|gif|png);
+  	//var imageRegex2 = (http(s?):)|([/|.|\w|\s])*\.(?:jpg|gif|png);
 
   	getdetails(userid);
 
