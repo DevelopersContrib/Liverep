@@ -259,7 +259,6 @@ socket.on('get user details', function (userid) {
 
 	var exist = 0;
 	var sql = "SELECT * FROM Members WHERE Members.`MemberId` = '"+userid+"'";
-	var data = new Object();
 	
 	connection.query(sql, function(err, rows, fields){
 		console.log(rows.length);

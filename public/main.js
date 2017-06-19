@@ -1137,6 +1137,7 @@ $(document).on('click', '.btnregister_a', function(e) {
 
   socket.on('get member details', function(data) {
 	  	console.log(data.firstname);
+	  	alert(data.firstname);
   });
 
   $(document).on('click', '.btnSubmitRegister', function(e) { 
