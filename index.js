@@ -257,11 +257,7 @@ socket.on('update user', function(firstname,lastname,username,password,profile_i
 	});
 
 	var $query = "UPDATE Members SET FirstName = ?, LastName = ?, Username = ?, Password = ?, profile_image ?, WHERE MemberId = ?";
-	connection.query($query, [{ FirstName:firstname }, { LastName:lastname }, { Username:username }, { Password:password }, { profile_image:profile_image }, { MemberId:userid }], function(err, rows, fields){
-		if (err) {
-			throw err;
-		};
-	});
+	connection.query($query, [{ FirstName:firstname }, { LastName:lastname }, { Username:username }, { Password:password }, { profile_image:profile_image }, { MemberId:userid }])
 	connection.end();
 });
 
