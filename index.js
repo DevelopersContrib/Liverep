@@ -251,10 +251,10 @@ socket.on('updatemessage', function (msg_id,msg) {
 socket.on('get user details', function (userid) {
 
 	var connection = mysql.createConnection({
-			host     : config.dbhost,
-			user     : config.dbuser,
-			password : config.dbpassword,
-			database : config.db
+		host     : config.dbhost,
+		user     : config.dbuser,
+		password : config.dbpassword,
+		database : config.db
 	});
 
 	var exist = 0;
@@ -262,7 +262,7 @@ socket.on('get user details', function (userid) {
 	var data = new Object();
 	
 	connection.query(sql, function(err, rows, fields){
-	console.log(rows.length);
+		console.log(rows.length);
 
 		if (rows.length > 0) {
 			exist = 1;
@@ -279,15 +279,22 @@ socket.on('get user details', function (userid) {
 				// password = rows[i].Password;
 				var email = rows[i].email;
 			};
-	
+			
 			var error = '';
-	
+			
 		} else {
 			var error = 'error'; 
 			console.log('error');
 		}
 
-		socket.emit('get member details', username,avatar,lastname,firstname,email,error);
+		socket.emit('get member details', { 
+			username:username,
+			avatar:avatar,
+			lastname:lastname,
+			firstname:firstname,
+			email:email,
+			error:error
+		}); 
 
 	}); // end of conection query
 
@@ -337,7 +344,7 @@ socket.on('get user details', function (userid) {
 	 			avatar = "https://d2qcctj8epnr7y.cloudfront.net/sheina/contrib/default_avatar.png";
 	 		}
 				  //console.log(rows[i].name);
-			people[socket.id] = {"username" : username, "avatar" : avatar, "room": userid, "isadmin": isadmin, "domain":domain, "msgcount":0, "isjoined":0,"msgs":"","email":email};
+				  people[socket.id] = {"username" : username, "avatar" : avatar, "room": userid, "isadmin": isadmin, "domain":domain, "msgcount":0, "isjoined":0,"msgs":"","email":email};
 				};
 			} else{
 				console.log('Error while performing Query.');
@@ -350,12 +357,11 @@ socket.on('get user details', function (userid) {
 				isadmin:isadmin,
 				userid:userid
 			});
-console.log('asdasdasdasd');
 		});
 
-	connection.end();
+  	connection.end();
 
-});
+  });
 
   //register user
   socket.on('register', function (email,username,password) {
@@ -418,7 +424,7 @@ console.log('asdasdasdasd');
   	var sql = "SELECT `ChatMessages`.*, Members.`Username`, `profile_image` FROM `ChatMessages` LEFT JOIN Members ON (Members.`MemberId` = `ChatMessages`.`member_id`)  WHERE room = "+room+" ORDER BY msg_id LIMIT 1";
 
   	connection.query(sql, function(err, rows, fields) {
-  	
+  		
   		if (err) throw err;
   		for (var i in rows) {
 
@@ -465,7 +471,7 @@ console.log('asdasdasdasd');
 				    subject: subject, // Subject line
 				    text: message, // plaintext body
 				    html: message // html body
-			};
+				};
 
 				// send mail with defined transport object
 				transporter.sendMail(mailOptions, function(error, info){
@@ -478,7 +484,7 @@ console.log('asdasdasdasd');
 			}
 		}); 
 
-	connection.end();
+connection.end();
 
 });
 
