@@ -1130,8 +1130,8 @@ $(document).on('click', '.btnregister_a', function(e) {
 	//socket.on('getdetails', userid:userid );
 
   function getdetails(userid) {
-	socket.emit('getuserdetails', userid);
-	console.log(userid);
+	var data = socket.emit('getuserdetails', userid);
+	console.log(data);
   }
 
   $(document).on('click', '.btnSubmitRegister', function(e) { 
