@@ -1129,8 +1129,10 @@ $(document).on('click', '.btnregister_a', function(e) {
   	});
 
 	//socket.on('getdetails', userid:userid );
+
   function getdetails(userid) {
 	socket.emit('getuserdetails', userid);
+	console.log('eit2x');
   }
 
   $(document).on('click', '.btnSubmitRegister', function(e) { 

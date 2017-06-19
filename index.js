@@ -288,6 +288,7 @@ socket.on('getuserdetails', function(userid) {
 	
 		}
 		console.log(data);
+		console.log('enter here');
 		//socket.emit('viewuserdetails', { data });
 	
 	}); // end of conection query
