@@ -299,7 +299,7 @@ socket.on('get user details', function (userid) {
 		alert('hello im here in getmemberdetails')
 		console.log(loges);
 		console.log('enter here');
-		socket.emit('getmemberdetails', loges);
+		socket.emit('get member details', username,avatar,lastname,firstname,email);
 
 	}); // end of conection query
 	connection.end();
