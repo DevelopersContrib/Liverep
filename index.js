@@ -256,7 +256,7 @@ socket.on('update user', function(fname,lname,uname,pword,img,uid) {
 		password : config.dbpassword,
 		database : config.db
 	});
-	var sql = "UPDATE Members SET Members.FirstName = '"+ fname +"', Members.LastName = '"+ lname +"', Members.Username = '"+ uname +"', Members.Password = '"+ pword +"', Members.profile_image = '"+ img +"' WHERE Members.MemberId = '"+ userid +"' ";
+	var sql = "UPDATE Members SET Members.FirstName = '"+ fname +"', Members.LastName = '"+ lname +"', Members.Username = '"+ uname +"', Members.Password = '"+ pword +"', Members.profile_image = '"+ img +"' WHERE Members.MemberId = '"+ uid +"' ";
 	// connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { LastName: lastname }, { Username: username },{ profile_image: image }, { MemberId: userid }])
 	connection.query(sql);
 	connection.end();
