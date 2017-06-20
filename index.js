@@ -274,7 +274,7 @@ socket.on('update user', function(fname,lname,uname,pword,img,uid) {
 		updateprofile(img,uid);
 	}
 	
-	connection.query(sql);
+	// connection.query(sql);
 	connection.end();
 
 });
