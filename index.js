@@ -257,12 +257,13 @@ socket.on('update user', function(firstname,lastname,username,password,image,use
 		database : config.dbhost
 	});
 
-	var sql = "UPDATE Members SET FirstName = '"+firstname+"', LastName = '"+lastname+"', Username = '"+username+"', profile_image = '"+image+"' WHERE MemberId = '"+userid+"' ";
+	var sql = "UPDATE Members SET FirstName = '"+ firstname +"', LastName = '"+ lastname +"', Username = '"+ username +"', profile_image = '"+ image +"' WHERE MemberId = '"+ userid +"' ";
 	//connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { LastName: lastname }, { Username: username },{ profile_image: image }, { MemberId: userid }])
 	connection.query(sql, function(err, rows, fields) {
-		if (!err) {
+		if (err) {
 			console.log(err);
 		}
+	console.log('done');
 	});
 	connection.end();
 });
