@@ -1318,6 +1318,9 @@ $(document).on('keypress', '.regPasswordInput', function(e) {
 	  jQuery('.settings').trigger('click');
 	  $loginPage.show();
 	  jQuery('.menu-header-btn').removeClass('btnOnline');
+    $('.msg-conversation-parts-container').removeClass('hide');
+    $('.msg-composer-container').removeClass('hide');
+    $('.msg-account-setting-container').addClass('hide');
 
 	});
 
