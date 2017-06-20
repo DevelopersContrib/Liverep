@@ -250,25 +250,18 @@ socket.on('updatemessage', function (msg_id,msg) {
 
 socket.on('update user', function(fname,lname,uname,pword,img,uid) {
 
-	// connectnow();
-	//var sql = "UPDATE Members SET Members.FirstName = '"+ firstname +"', Members.LastName = '"+ lastname +"', Members.Username = '"+ username +"', Members.profile_image = '"+ image +"' WHERE Members.MemberId = '"+ userid +"' ";
-	//connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { LastName: lastname }, { Username: username },{ profile_image: image }, { MemberId: userid }])
-	// connection.query(sql);
-	// connection.end();
+	var connection = mysql.createConnection({
+		host     : config.dbhost,
+		user     : config.dbuser,
+		password : config.dbpassword,
+		database : config.db
+	});
+	var sql = "UPDATE Members SET Members.FirstName = '"+ firstname +"', Members.LastName = '"+ lastname +"', Members.Username = '"+ username +"', Members.profile_image = '"+ image +"' WHERE Members.MemberId = '"+ userid +"' ";
+	// connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { LastName: lastname }, { Username: username },{ profile_image: image }, { MemberId: userid }])
+	connection.query(sql);
+	connection.end();
 	
-	if (fname !== "") {
-		updatefname(fname,uid);
-	} else if(lname !== "")  {
-		updatelname(lname,uid);
-	} else if(uname !== "") {
-		updateuname(uname,uid);
-	} else if(pword !== "") {
-		updatepword(pword,uid);
-	} else if(img !== "") {
-		updateprofile(img,uid);
-	} else {
-		console.log('prof');
-	}
+	
 
 });
 
@@ -278,7 +271,7 @@ function updatefname(fname,uid) {
 		host     : config.dbhost,
 		user     : config.dbuser,
 		password : config.dbpassword,
-		database : config.dbhost
+		database : config.db
 	});
 	connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: fname }, { MemberId: uid }])
 	connection.end();
@@ -289,7 +282,7 @@ function updatelname(lname,uid) {
 		host     : config.dbhost,
 		user     : config.dbuser,
 		password : config.dbpassword,
-		database : config.dbhost
+		database : config.db
 	});
 	connection.query('UPDATE Members SET ? WHERE ?', [{ LastName: lname }, { MemberId: uid }])
 	connection.end();
@@ -300,7 +293,7 @@ function updateuname(uname,uid) {
 		host     : config.dbhost,
 		user     : config.dbuser,
 		password : config.dbpassword,
-		database : config.dbhost
+		database : config.db
 	});
 	connection.query('UPDATE Members SET ? WHERE ?', [{ Username: uname }, { MemberId: uid }])
 	connection.end();
@@ -311,7 +304,7 @@ function updatepword(pword,uid) {
 		host     : config.dbhost,
 		user     : config.dbuser,
 		password : config.dbpassword,
-		database : config.dbhost
+		database : config.db
 	});
 	connection.query('UPDATE Members SET ? WHERE ?', [{ Password: pword }, { MemberId: uid }])
 	connection.end();
