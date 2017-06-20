@@ -248,20 +248,69 @@ socket.on('updatemessage', function (msg_id,msg) {
 });
 
 
-socket.on('update user', function(firstname,lastname,username,password,image,userid) {
+socket.on('update user', function(fname,lname,uname,pword,img,uid) {
 
+	// connectnow();
+	//var sql = "UPDATE Members SET Members.FirstName = '"+ firstname +"', Members.LastName = '"+ lastname +"', Members.Username = '"+ username +"', Members.profile_image = '"+ image +"' WHERE Members.MemberId = '"+ userid +"' ";
+	//connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { LastName: lastname }, { Username: username },{ profile_image: image }, { MemberId: userid }])
+	// connection.query(sql);
+	// connection.end();
+	
+	if (firstname !== "") {
+		updatefname(fname,uid);
+	} else if(lastname !== "")  {
+		updatelname(lname,uid);
+	} else if(username !== "") {
+		updateuname(uname,uid);
+	} else if(password !== "") {
+		updatepword(pword,uid);
+	} else if(image !== "") {
+		updateprofile(img,uid);
+	} else {
+		console.log('prof');
+	}
+
+});
+
+
+function connectnow() {
 	var connection = mysql.createConnection({
 		host     : config.dbhost,
 		user     : config.dbuser,
 		password : config.dbpassword,
 		database : config.dbhost
 	});
+}
 
-	var sql = "UPDATE Members SET FirstName = '"+ firstname +"', LastName = '"+ lastname +"', Username = '"+ username +"', profile_image = '"+ image +"' WHERE MemberId = '"+ userid +"' ";
-	//connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { LastName: lastname }, { Username: username },{ profile_image: image }, { MemberId: userid }])
-	connection.query(sql);
+function updatefname(fname,uid) {
+	connectnow();
+	connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: fname }, { MemberId: uid }])
 	connection.end();
-});
+}
+
+function updatelname(lname,uid) {
+	connectnow();
+	connection.query('UPDATE Members SET ? WHERE ?', [{ LastName: lname }, { MemberId: uid }])
+	connection.end();
+}
+
+function updateuname(uname,uid) {
+	connectnow();
+	connection.query('UPDATE Members SET ? WHERE ?', [{ Username: uname }, { MemberId: uid }])
+	connection.end();
+}
+
+function updatepword(pword,uid) {
+	connectnow();
+	connection.query('UPDATE Members SET ? WHERE ?', [{ Password: pword }, { MemberId: uid }])
+	connection.end();
+}
+
+function updateprofile(img,uid) {
+	connectnow();
+	connection.query('UPDATE Members SET ? WHERE ?', [{ profile_image: img }, { MemberId: uid }])
+	connection.end();
+}
 
 // function to call in account setting
 socket.on('get user details', function (userid) {
