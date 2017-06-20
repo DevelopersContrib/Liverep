@@ -273,41 +273,57 @@ socket.on('update user', function(fname,lname,uname,pword,img,uid) {
 });
 
 
-function connectnow() {
+function updatefname(fname,uid) {
 	var connection = mysql.createConnection({
 		host     : config.dbhost,
 		user     : config.dbuser,
 		password : config.dbpassword,
 		database : config.dbhost
 	});
-}
-
-function updatefname(fname,uid) {
-	connectnow();
 	connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: fname }, { MemberId: uid }])
 	connection.end();
 }
 
 function updatelname(lname,uid) {
-	connectnow();
+	var connection = mysql.createConnection({
+		host     : config.dbhost,
+		user     : config.dbuser,
+		password : config.dbpassword,
+		database : config.dbhost
+	});
 	connection.query('UPDATE Members SET ? WHERE ?', [{ LastName: lname }, { MemberId: uid }])
 	connection.end();
 }
 
 function updateuname(uname,uid) {
-	connectnow();
+	var connection = mysql.createConnection({
+		host     : config.dbhost,
+		user     : config.dbuser,
+		password : config.dbpassword,
+		database : config.dbhost
+	});
 	connection.query('UPDATE Members SET ? WHERE ?', [{ Username: uname }, { MemberId: uid }])
 	connection.end();
 }
 
 function updatepword(pword,uid) {
-	connectnow();
+	var connection = mysql.createConnection({
+		host     : config.dbhost,
+		user     : config.dbuser,
+		password : config.dbpassword,
+		database : config.dbhost
+	});
 	connection.query('UPDATE Members SET ? WHERE ?', [{ Password: pword }, { MemberId: uid }])
 	connection.end();
 }
 
 function updateprofile(img,uid) {
-	connectnow();
+	var connection = mysql.createConnection({
+		host     : config.dbhost,
+		user     : config.dbuser,
+		password : config.dbpassword,
+		database : config.dbhost
+	});
 	connection.query('UPDATE Members SET ? WHERE ?', [{ profile_image: img }, { MemberId: uid }])
 	connection.end();
 }
