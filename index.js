@@ -259,12 +259,7 @@ socket.on('update user', function(firstname,lastname,username,password,image,use
 
 	var sql = "UPDATE Members SET FirstName = '"+ firstname +"', LastName = '"+ lastname +"', Username = '"+ username +"', profile_image = '"+ image +"' WHERE MemberId = '"+ userid +"' ";
 	//connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { LastName: lastname }, { Username: username },{ profile_image: image }, { MemberId: userid }])
-	connection.query(sql, function(err, rows, fields) {
-		if (err) {
-			console.log(err);
-		}
-	console.log('done');
-	});
+	connection.query(sql);
 	connection.end();
 });
 
