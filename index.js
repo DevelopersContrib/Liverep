@@ -256,15 +256,15 @@ socket.on('update user', function(fname,lname,uname,pword,img,uid) {
 	// connection.query(sql);
 	// connection.end();
 	
-	if (firstname !== "") {
+	if (fname !== "") {
 		updatefname(fname,uid);
-	} else if(lastname !== "")  {
+	} else if(lname !== "")  {
 		updatelname(lname,uid);
-	} else if(username !== "") {
+	} else if(uname !== "") {
 		updateuname(uname,uid);
-	} else if(password !== "") {
+	} else if(pword !== "") {
 		updatepword(pword,uid);
-	} else if(image !== "") {
+	} else if(img !== "") {
 		updateprofile(img,uid);
 	} else {
 		console.log('prof');
