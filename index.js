@@ -248,21 +248,16 @@ socket.on('updatemessage', function (msg_id,msg) {
 });
 
 
-socket.on('update user', function(firstname,lastname,username,password,profile_image,userid) {
+socket.on('update user', function(firstname,lastname,username,password,image,userid) {
 
 	var connection = mysql.createConnection({
 		host     : config.dbhost,
 		user     : config.dbuser,
 		password : config.dbpassword,
-		database : config.db
+		database : config.dbhost
 	});
 
-	connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { MemberId: userid }])
-	connection.query('UPDATE Members SET ? WHERE ?', [{ LastName: lastname }, { MemberId: userid }])
-	connection.query('UPDATE Members SET ? WHERE ?', [{ Username: username }, { MemberId: userid }])
-	connection.query('UPDATE Members SET ? WHERE ?', [{ Password: password }, { MemberId: userid }])
-	connection.query('UPDATE Members SET ? WHERE ?', [{ profile_image: profile_image }, { MemberId: userid }])
-	
+	connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { LastName: lastname }, { Username: username },{ profile_image: image }, { MemberId: userid }])
 	connection.end();
 });
 
