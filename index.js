@@ -273,7 +273,7 @@ socket.on('update user', function(fname,lname,uname,pword,img,uid) {
 	if (img !== '') {
 		updateprofile(img,uid);
 	}
-	
+
 	// connection.query(sql);
 	connection.end();
 
@@ -329,7 +329,7 @@ function updateprofile(img,uid) {
 		host     : config.dbhost,
 		user     : config.dbuser,
 		password : config.dbpassword,
-		database : config.dbhost
+		database : config.db
 	});
 	connection.query('UPDATE Members SET ? WHERE ?', [{ profile_image: img }, { MemberId: uid }])
 	connection.end();
