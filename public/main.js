@@ -1114,7 +1114,7 @@ $(document).on('click', '.btnregister_a', function(e) {
        $(this).html('Please Wait ... ');
   		socket.emit('update user', firstname, lastname,	username, password,	imageurl, userid);
        setTimeout(function() {
-            $(this).attr('disabled', 'disabled');
+            $(this).removeAttr('disabled', 'disabled');
             $(this).html('Save');
        }, 2000);
   	}
