@@ -1116,7 +1116,7 @@ $(document).on('click', '.btnregister_a', function(e) {
        setTimeout(function() {
             $(this).removeAttr('disabled', 'disabled');
             $(this).html('Save');
-       }, 2000);
+       }, 20);
   	}
   });
 
