@@ -38,7 +38,6 @@ app.use(allowCrossDomain);
 app.use(express.static(__dirname + '/public'));
 
 // Chatroom
-
 // usernames which are currently connected to the chat
 var usernames = {};
 var avatars = {};
@@ -131,9 +130,6 @@ function findClientsSocket(io,roomId, namespace) {
 					console.log('Message sent: ');
 
 				});
-
-
-
 			}
 		}
 	}
@@ -170,7 +166,6 @@ function findClientsSocket(io,roomId, namespace) {
 	  });
 
 	  connection.end();
-
 	  
 	  if (people[socket.id].isjoined == 0){
 	  	people[socket.id].msgs += data.message+'<br>';
@@ -217,7 +212,6 @@ function findClientsSocket(io,roomId, namespace) {
 
   	}
 
-
   });
 
 socket.on('deletemessage', function (msg_id) {
@@ -258,6 +252,7 @@ socket.on('update user', function(fname,lname,uname,pword,img,uid) {
 	});
 	//var sql = "UPDATE Members SET Members.FirstName = '"+ fname +"', Members.LastName = '"+ lname +"', Members.Username = '"+ uname +"', Members.Password = '"+ pword +"', Members.profile_image = '"+ img +"' WHERE Members.MemberId = '"+ uid +"' ";
 	// connection.query('UPDATE Members SET ? WHERE ?', [{ FirstName: firstname }, { LastName: lastname }, { Username: username },{ profile_image: image }, { MemberId: userid }])
+	
 	if (fname !== '') {
 		updatefname(fname,uid);
 	}
@@ -431,6 +426,7 @@ socket.on('get user details', function (userid) {
 				  //console.log(rows[i].name);
 				  people[socket.id] = {"username" : username, "avatar" : avatar, "room": userid, "isadmin": isadmin, "domain":domain, "msgcount":0, "isjoined":0,"msgs":"","email":email};
 				};
+				
 			} else{
 				console.log('Error while performing Query.');
 			}
@@ -634,10 +630,7 @@ connection.end();
 	if (guest == 1){
 		socket.emit("new guest message", username,avatar,room,isadmin,domain,guest,message);
 		people[socket.id] = {"username" : username, "avatar" : avatar, "room": room, "isadmin": 0, "domain":domain, "msgcount":0, "isjoined":0,"msgs":"","email":""};
-
 	}
-	
-	
 });
 
 socket.on('refreshlist', function () {
@@ -662,7 +655,6 @@ socket.on('refreshlist', function () {
 	connection.end();
 
 });  
-
 
 //when the client emits 'add user' to room, this listens and executes
 socket.on('joinRoom', function (room,username,avatar,uname) {

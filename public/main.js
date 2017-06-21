@@ -211,7 +211,7 @@ function getFormattedDate(msTime) {
 
 	      //add user to own room
 	      socket.emit('add user', username,avatar,room,isadmin,domain,isguest,hidemess);
-	  }
+     }
 
       // jQuery('.close-header-btn').addClass('btnExit');
       // jQuery('.close-header-btn').show();
@@ -232,165 +232,166 @@ function getFormattedDate(msTime) {
       },60000);
       
 
-  }else {
-  	$warning.show();
-  	$warning.html('Account does not exist. Register <a href="javascript:void(0)" class="btnregister_a">here</a>');
-  	jQuery('.msg-loader-img-container').hide();
-  	jQuery('.btnLogin').removeAttr('disabled');
-  }
-}
+    }else {
+     $warning.show();
+     $warning.html('Account does not exist. Register <a href="javascript:void(0)" class="btnregister_a">here</a>');
+     jQuery('.msg-loader-img-container').hide();
+     jQuery('.btnLogin').removeAttr('disabled');
+   }
+ }
 
-function joinRoom(room,uname){
-	$peopleList.fadeOut();
-	jQuery('.msg-sheet-content-container').show();
-	$chatPage.show();
-	if(jQuery('.chat-page').is(':visible')){
-		jQuery('.msg-sheet-content').removeClass("loginBtm-0");
-	}
-	$msgComposer.show();
+ function joinRoom(room,uname){
+   $peopleList.fadeOut();
+   jQuery('.msg-sheet-content-container').show();
+   $chatPage.show();
+   if(jQuery('.chat-page').is(':visible')){
+    jQuery('.msg-sheet-content').removeClass("loginBtm-0");
+  }
+  $msgComposer.show();
       //$loginPage.off('click');
       $currentInput = $inputMessage.focus();
       messaging = true;
 
       //add user to own room
       socket.emit('joinRoom', room, jQuery.session.get('username'),jQuery.session.get('avatar'),uname);
+    }
+
+    function IsOnline(people,userid,domain){
+     for(socketId in people){
+      if(people[socketId].room === userid){
+       if (people[socketId].domain === domain){
+        return true;
+      }else {
+        return false;;	
+      }
+    }
+  }
+  return false;
+}
+
+
+function showRooms(people,rows){
+ var html = "";
+ var msg_count = 0;
+ var cntronline = 0;
+ var avatar = "";
+ var uname = "";
+ var listed = [];
+ var oclass = "wrap-item-list-link-offline";
+ if (rows.length == 0){
+  html += '<span class="meta-online-msg">No online users.</span>';
+}else {
+  html += '<span class="meta-online-msg">List of people</span>';
+
+  for (var i = 0; i < rows.length; i++) {
+
+   if(IsOnline(people,rows[i].MemberId,rows[i].domain)){
+    listed.push(rows[i].MemberId);
+    oclass = "wrap-item-list-link-online";  
+  }else {
+    oclass = "wrap-item-list-link-offline";  
   }
 
-  function IsOnline(people,userid,domain){
-  	for(socketId in people){
-  		if(people[socketId].room === userid){
-  			if (people[socketId].domain === domain){
-  				return true;
-  			}else {
-  				return false;;	
-  			}
-  		}
-  	}
-  	return false;
+  avatar = rows[i].profile_image;
+
+  if ((avatar != "") && (avatar != null)){
+
+  }else {
+    avatar = "https://d2qcctj8epnr7y.cloudfront.net/sheina/contrib/default_avatar.png";
   }
-  
-  function showRooms(people,rows){
-  	var html = "";
-  	var msg_count = 0;
-  	var cntronline = 0;
-  	var avatar = "";
-  	var uname = "";
-  	var listed = [];
-  	var oclass = "wrap-item-list-link-offline";
-  	if (rows.length == 0){
-  		html += '<span class="meta-online-msg">No online users.</span>';
-  	}else {
-  		html += '<span class="meta-online-msg">List of people</span>';
 
-  		for (var i = 0; i < rows.length; i++) {
-
-  			if(IsOnline(people,rows[i].MemberId,rows[i].domain)){
-  				listed.push(rows[i].MemberId);
-  				oclass = "wrap-item-list-link-online";  
-  			}else {
-  				oclass = "wrap-item-list-link-offline";  
-  			}
-
-  			avatar = rows[i].profile_image;
-
-  			if ((avatar != "") && (avatar != null)){
-
-  			}else {
-  				avatar = "https://d2qcctj8epnr7y.cloudfront.net/sheina/contrib/default_avatar.png";
-  			}
-
-  			uname = rows[i].Username;
-  			if ((uname == null) || (uname == '')){
-  				uname = 'user'+rows[i].room;
-  			}
-
-  			html += ' <a href="javascript:void(0)" id="room_'+rows[i].room+'" class="wrap-item-list-link '+oclass+' joinRoom" title="'+uname+'">';
-  			html += '<div class="wrap-item-list-table">';
-  			html += '<div class="wrap-item-list-img">';
-  			html += '<div class="wrap-item-list-imgProfile">';
-  			html += '<img style="width:30px;height:30px;" src="'+avatar+'" alt="" />';
-  			html += '</div>';
-  			html += ' </div>';
-  			html += '<div class="wrap-item-name">';
-
-  			msg_count = rows[i].total;
-  			if (msg_count == 0){
-  				html += ''+uname+' from '+rows[i].domain+' ';
-  			}else {
-  				html += ''+uname+' from '+rows[i].domain+' <span class="msg-notif-msg-user">'+msg_count+'</span>';
-  			}
-
-  			html += '</div>';
-  			html += '<div class="wrap-item-user">';
-  			html += '<div class="user-status-offline"></div>';
-  			html += '</div>';
-  			html += '</div>';
-  			html += '</a>';
-
-
-  		}
-
-
-  		for(socketId in people){
-  			if(people[socketId].isadmin === 0){
-  				if(jQuery.inArray(people[socketId].room, listed) == -1){
-  					html += ' <a href="javascript:void(0)" id="room_'+people[socketId].room+'" class="wrap-item-list-link wrap-item-list-link-online joinRoom" title="'+people[socketId].username+'">';
-  					html += '<div class="wrap-item-list-table">';
-  					html += '<div class="wrap-item-list-img">';
-  					html += '<div class="wrap-item-list-imgProfile">';
-  					html += '<img style="width:30px;height:30px;" src="'+people[socketId].avatar+'" alt="" />';
-  					html += '</div>';
-  					html += ' </div>';
-  					html += '<div class="wrap-item-name">';
-
-  					msg_count = people[socketId].msgcount;
-  					if (msg_count == 0){
-  						html += ''+people[socketId].username+' from '+people[socketId].domain+' ';
-  					}else {
-  						html += ''+people[socketId].username+' from '+people[socketId].domain+' <span class="msg-notif-msg-user">'+msg_count+'</span>';
-  					}
-  					html += '</div>';
-  					html += '<div class="wrap-item-user">';
-  					html += '<div class="user-status-offline"></div>';
-  					html += '</div>';
-  					html += '</div>';
-  					html += '</a>';
-  				}
-  				cntronline++;
-  			}
-  		}
-
-
-  	}
-
-  	if (connected){
-  		$peopleList.html(html);
-  		$peopleList.fadeIn();
-
-  		jQuery('.msg-unread-counter-active').html(cntronline);
-  		jQuery('.msg-unread-counter-active').show();
-  	}
+  uname = rows[i].Username;
+  if ((uname == null) || (uname == '')){
+    uname = 'user'+rows[i].room;
   }
-  
-  
-  function sendToSlack(channel,message,username,avatar,domain){
-  	jQuery.post("https://tools.contrib.com/chat/sendtoslack",
-  	{
-  		channel:channel,
-  		message:message,
-  		username:username,
-  		avatar:avatar,
-  		domain:domain
-  	},
-  	function(data){
-  		if (data.success){
-  			console.log('posted to slack');
-  		}else {
-  			console.log('error while posting to slack');
-  		}
-  	});
+
+  html += ' <a href="javascript:void(0)" id="room_'+rows[i].room+'" class="wrap-item-list-link '+oclass+' joinRoom" title="'+uname+'">';
+  html += '<div class="wrap-item-list-table">';
+  html += '<div class="wrap-item-list-img">';
+  html += '<div class="wrap-item-list-imgProfile">';
+  html += '<img style="width:30px;height:30px;" src="'+avatar+'" alt="" />';
+  html += '</div>';
+  html += ' </div>';
+  html += '<div class="wrap-item-name">';
+
+  msg_count = rows[i].total;
+  if (msg_count == 0){
+    html += ''+uname+' from '+rows[i].domain+' ';
+  }else {
+    html += ''+uname+' from '+rows[i].domain+' <span class="msg-notif-msg-user">'+msg_count+'</span>';
   }
-  
+
+  html += '</div>';
+  html += '<div class="wrap-item-user">';
+  html += '<div class="user-status-offline"></div>';
+  html += '</div>';
+  html += '</div>';
+  html += '</a>';
+
+
+}
+
+
+for(socketId in people){
+ if(people[socketId].isadmin === 0){
+  if(jQuery.inArray(people[socketId].room, listed) == -1){
+   html += ' <a href="javascript:void(0)" id="room_'+people[socketId].room+'" class="wrap-item-list-link wrap-item-list-link-online joinRoom" title="'+people[socketId].username+'">';
+   html += '<div class="wrap-item-list-table">';
+   html += '<div class="wrap-item-list-img">';
+   html += '<div class="wrap-item-list-imgProfile">';
+   html += '<img style="width:30px;height:30px;" src="'+people[socketId].avatar+'" alt="" />';
+   html += '</div>';
+   html += ' </div>';
+   html += '<div class="wrap-item-name">';
+
+   msg_count = people[socketId].msgcount;
+   if (msg_count == 0){
+    html += ''+people[socketId].username+' from '+people[socketId].domain+' ';
+  }else {
+    html += ''+people[socketId].username+' from '+people[socketId].domain+' <span class="msg-notif-msg-user">'+msg_count+'</span>';
+  }
+  html += '</div>';
+  html += '<div class="wrap-item-user">';
+  html += '<div class="user-status-offline"></div>';
+  html += '</div>';
+  html += '</div>';
+  html += '</a>';
+}
+cntronline++;
+}
+}
+
+
+}
+
+if (connected){
+  $peopleList.html(html);
+  $peopleList.fadeIn();
+
+  jQuery('.msg-unread-counter-active').html(cntronline);
+  jQuery('.msg-unread-counter-active').show();
+}
+}
+
+
+function sendToSlack(channel,message,username,avatar,domain){
+ jQuery.post("https://tools.contrib.com/chat/sendtoslack",
+ {
+  channel:channel,
+  message:message,
+  username:username,
+  avatar:avatar,
+  domain:domain
+},
+function(data){
+  if (data.success){
+   console.log('posted to slack');
+ }else {
+   console.log('error while posting to slack');
+ }
+});
+}
+
   // Sends a chat message
   function sendMessage () {
   	var message = $inputMessage.val();
@@ -408,8 +409,8 @@ function joinRoom(room,uname){
       //log2(message);
       // tell server to execute 'new message' and send along one parameter
       socket.emit('new message', {message:message, username:jQuery.session.get('username'), avatar:jQuery.session.get('avatar'), userid:jQuery.session.get('userid'),mdate:moment(),domain:domain});
+    }
   }
-}
 
   //send gest message
   function sendGuestMessage(){
@@ -441,7 +442,7 @@ function joinRoom(room,uname){
 	    	}
 
 	    }
-	}
+   }
 
 
   // Log a message
@@ -709,84 +710,84 @@ function log4 (message, options,rows,domain) {
 
 	    messageTimeSent.last().text(now.fromNow());
 
-	}
+   }
 
 
-	function showhistory(rows){
-		var html = '';
-		var avatar = '';
-		var now = '';
+   function showhistory(rows){
+    var html = '';
+    var avatar = '';
+    var now = '';
 
-		for (var i in rows) {
-			if ((rows[i].profile_image != "") && (rows[i].profile_image != null)){
-				avatar = rows[i].profile_image;
-			}else {
-				avatar = "https://d2qcctj8epnr7y.cloudfront.net/sheina/contrib/default_avatar.png";
-			}
+    for (var i in rows) {
+     if ((rows[i].profile_image != "") && (rows[i].profile_image != null)){
+      avatar = rows[i].profile_image;
+    }else {
+      avatar = "https://d2qcctj8epnr7y.cloudfront.net/sheina/contrib/default_avatar.png";
+    }
 
-			now = moment(rows[i].mtimestamp);
+    now = moment(rows[i].mtimestamp);
 
-			if (rows[i].member_id == jQuery.session.get('userid')){
-				html += '<div class="msg-conversation-part" id="msg_'+rows[i].msg_id+'" style="display: block;">';
-				html += '<div class="msg-comment msg-comment-by-user">';
-				html += '<div class="msg-comment-body-container msgmine">';
-				html += '<div class="msg-comment-body msg-embed-body">';
-				html += '<span class="msg-user-comment-name msg-user-comment-name-user text-capitalize">';
-				html += 'You';
-				html += '</span>';
-				html += '<p id="msgcontent_'+rows[i].msg_id+'">'+rows[i].message+'</p>';
-				html += '<input type="text" class="editText" id="msgeditcontent_'+rows[i].msg_id+'" value="'+rows[i].message+'" style="display:none">';
-				html += '<span class="mmanage" id="mmanage_'+rows[i].msg_id+'">';
-				html += '<a href="javascript:void(0)" class="medit" id="msg_'+rows[i].msg_id+'"><i class="fa fa-edit"></i></a>&nbsp;';
-				html += '<a href="javascript:void(0)" class="mdelete" id="msg_'+rows[i].msg_id+'"><i class="fa fa-trash"></i></a>';
-				html += '</span>';
-				html += '</div>';
-				html += '<div class="msg-comment-caret"></div>';
-				html += '</div>';
-				html += '<div class="msg-comment-metadata-container">';
-				html += '<div class="msg-comment-metadata">';
-				html += '<span class="timesent" data-time=' + rows[i].mtimestamp + '>'+now.fromNow()+'</span>';
-				html += '</div>';
-				html += '</div>';
-				html += '<img class="msg-comment-avatar" src="'+ jQuery.session.get('avatar')+'" alt="" />';
-				html += '</div>';
-				html += '</div>';
+    if (rows[i].member_id == jQuery.session.get('userid')){
+      html += '<div class="msg-conversation-part" id="msg_'+rows[i].msg_id+'" style="display: block;">';
+      html += '<div class="msg-comment msg-comment-by-user">';
+      html += '<div class="msg-comment-body-container msgmine">';
+      html += '<div class="msg-comment-body msg-embed-body">';
+      html += '<span class="msg-user-comment-name msg-user-comment-name-user text-capitalize">';
+      html += 'You';
+      html += '</span>';
+      html += '<p id="msgcontent_'+rows[i].msg_id+'">'+rows[i].message+'</p>';
+      html += '<input type="text" class="editText" id="msgeditcontent_'+rows[i].msg_id+'" value="'+rows[i].message+'" style="display:none">';
+      html += '<span class="mmanage" id="mmanage_'+rows[i].msg_id+'">';
+      html += '<a href="javascript:void(0)" class="medit" id="msg_'+rows[i].msg_id+'"><i class="fa fa-edit"></i></a>&nbsp;';
+      html += '<a href="javascript:void(0)" class="mdelete" id="msg_'+rows[i].msg_id+'"><i class="fa fa-trash"></i></a>';
+      html += '</span>';
+      html += '</div>';
+      html += '<div class="msg-comment-caret"></div>';
+      html += '</div>';
+      html += '<div class="msg-comment-metadata-container">';
+      html += '<div class="msg-comment-metadata">';
+      html += '<span class="timesent" data-time=' + rows[i].mtimestamp + '>'+now.fromNow()+'</span>';
+      html += '</div>';
+      html += '</div>';
+      html += '<img class="msg-comment-avatar" src="'+ jQuery.session.get('avatar')+'" alt="" />';
+      html += '</div>';
+      html += '</div>';
 
-				messageTimeSent = jQuery(".timesent");
-				now = moment(rows[i].mtimestamp);
-				messageTimeSent.last().text(now.fromNow());
-			}else {
-				html += '<div class="msg-conversation-part" id="msg_'+rows[i].msg_id+'" style="display: block;">';
-				html += '<div class="msg-comment msg-comment-by-admin">';
-				html += '<span class="username"><img class="msg-comment-avatar" alt="" src="'+avatar+'"></span>';
-				html += '<div class="msg-comment-body-container">';
-				html += '<div class="msg-comment-body msg-embed-body">';
-				html += '<span class="msg-user-comment-name text-capitalize">';
-				html += rows[i].Username;
-				html += '</span>';
-				html += '<p>'+rows[i].message+'</p>';
-				html += '</div>';
-				html += '<div class="msg-comment-caret"></div>';
-				html += '</div>';
-				html += '<div class="msg-comment-metadata-container">';
-				html += '<div class="msg-comment-metadata">';
-				html += '<span class="timesent" data-time=' + rows[i].mtimestamp + '>'+now.fromNow()+'</span>';
-				html += '</div>';
-				html += '</div>';
-				html += '</div>';
-				html += '</div>';
+      messageTimeSent = jQuery(".timesent");
+      now = moment(rows[i].mtimestamp);
+      messageTimeSent.last().text(now.fromNow());
+    }else {
+      html += '<div class="msg-conversation-part" id="msg_'+rows[i].msg_id+'" style="display: block;">';
+      html += '<div class="msg-comment msg-comment-by-admin">';
+      html += '<span class="username"><img class="msg-comment-avatar" alt="" src="'+avatar+'"></span>';
+      html += '<div class="msg-comment-body-container">';
+      html += '<div class="msg-comment-body msg-embed-body">';
+      html += '<span class="msg-user-comment-name text-capitalize">';
+      html += rows[i].Username;
+      html += '</span>';
+      html += '<p>'+rows[i].message+'</p>';
+      html += '</div>';
+      html += '<div class="msg-comment-caret"></div>';
+      html += '</div>';
+      html += '<div class="msg-comment-metadata-container">';
+      html += '<div class="msg-comment-metadata">';
+      html += '<span class="timesent" data-time=' + rows[i].mtimestamp + '>'+now.fromNow()+'</span>';
+      html += '</div>';
+      html += '</div>';
+      html += '</div>';
+      html += '</div>';
 
 
-				messageTimeSent = jQuery(".timesent");
+      messageTimeSent = jQuery(".timesent");
 
-				messageTimeSent.last().text(now.fromNow());
-			}
+      messageTimeSent.last().text(now.fromNow());
+    }
 	        //console.log('Post Titles: ', rows[i].post_title);
-	    }
+       }
 
-	    jQuery('.messages').append(html);
+       jQuery('.messages').append(html);
 
-	}
+     }
 
   //function update user list
   function updateOnlineUsers(people,rows){
@@ -938,7 +939,7 @@ function log4 (message, options,rows,domain) {
     }
 
     $messages[0].scrollTop = $messages[0].scrollHeight;
-}
+  }
 
   // Prevents input from having injected markup
   function cleanInput (input) {
@@ -982,7 +983,7 @@ function log4 (message, options,rows,domain) {
     // Calculate color
     var index = Math.abs(hash % COLORS.length);
     return COLORS[index];
-}
+  }
 
   // Keyboard events
   $inputMessage.on('input', function() {
@@ -1016,8 +1017,8 @@ function log4 (message, options,rows,domain) {
             var sHeight = jQuery('.msg-sheet-content')[0].scrollHeight;
             //Scrolling the element to the sHeight
             jQuery('.msg-sheet-content').scrollTop(sHeight);
-        }
-    });
+          }
+        });
 
 
   // Click events
@@ -1030,7 +1031,7 @@ function log4 (message, options,rows,domain) {
   // Focus input when clicking anywhere on login page
   $loginPage.click(function () {
     //$currentInput.focus();
-});
+  });
 
   // Focus input when clicking on the message input's border
   $inputMessage.click(function () {
@@ -1107,11 +1108,15 @@ $(document).on('click', '.btnregister_a', function(e) {
   		$('.txtClassError').html('Image Url is Invalid').removeClass('hide');
   		counter++;
   	} else {
-
   		$('.txtClassError').addClass('hide');
   		console.log('sending update');
-  		$(this).prop('disabled', true);
+       $(this).attr('disabled', 'disabled');
+       $(this).html('Please Wait ... ');
   		socket.emit('update user', firstname, lastname,	username, password,	imageurl, userid);
+       setTimeout(function() {
+            $(this).attr('disabled', 'disabled');
+            $(this).html('Save');
+       }, 2000);
   	}
   });
 
@@ -1216,14 +1221,14 @@ $(document).on('keypress', '.regPasswordInput', function(e) {
 			  $loginPage.off('click');
 			  $currentInput = $inputMessage.focus();
 		      //add user to own room
-		  }
+        }
 
-		  if (hasguestlog === true){
-		  	sendGuestMessage();
-		  }
+        if (hasguestlog === true){
+         sendGuestMessage();
+       }
 
-		}
-	});
+     }
+   });
   
   //guest entered email
   jQuery(document).on('keypress', '#chat-guest-email', function(event) { 
@@ -1322,28 +1327,28 @@ $(document).on('keypress', '.regPasswordInput', function(e) {
     $('.msg-composer-container').removeClass('hide');
     $('.msg-account-setting-container').addClass('hide');
 
-	});
-
-
-  jQuery(document).on('click', '.btnOnline', function(e) {
-  	messaging = false;
-  	socket.emit('refreshlist');
   });
 
 
-  $('.settings').click(function() {
-  	var clicks = $(this).data('clicks');
-  	if (clicks) {
+jQuery(document).on('click', '.btnOnline', function(e) {
+ messaging = false;
+ socket.emit('refreshlist');
+});
+
+
+$('.settings').click(function() {
+ var clicks = $(this).data('clicks');
+ if (clicks) {
       // odd clicks
       $(this).parents('.msg-header-dropdown').find('.msg-dropdown-ul').hide();
-  } else {
+    } else {
       // even clicks
       $(this).parents('.msg-header-dropdown').find('.msg-dropdown-ul').show();
-  }
-  $(this).data("clicks", !clicks);
-});
-  
-  
+    }
+    $(this).data("clicks", !clicks);
+  });
+
+
   /*jQuery(document).on('mouseenter', '.msgmine', function() {
 	  jQuery(this).find('.mmanage').show();
 	});
@@ -1403,7 +1408,7 @@ socket.on("history", function(room,rows) {
     });
     
     //addParticipantsMessage(data);
-});
+  });
 
   //execute get rooms
   socket.on('listrooms', function (data) {
