@@ -1111,11 +1111,11 @@ $(document).on('click', '.btnregister_a', function(e) {
   		$('.txtClassError').addClass('hide');
        $(this).attr('disabled', 'disabled');
        $(this).html('Please Wait ... ');
-         setTimeout(function() {
-            $(this).removeAttr('disabled', 'disabled');
-            $(this).html('Save');
-       }, 2000);
   		socket.emit('update user', firstname, lastname,	username, password,	imageurl, userid);
+         setTimeout(function() {
+            $('.btnSaveUpdate').removeAttr('disabled', 'disabled');
+            $('.btnSaveUpdate').html('Save');
+       }, 2000);
   	}
   });
 
