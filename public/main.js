@@ -1109,14 +1109,13 @@ $(document).on('click', '.btnregister_a', function(e) {
   		counter++;
   	} else {
   		$('.txtClassError').addClass('hide');
-  		console.log('sending update');
        $(this).attr('disabled', 'disabled');
        $(this).html('Please Wait ... ');
-  		socket.emit('update user', firstname, lastname,	username, password,	imageurl, userid);
-       setTimeout(function() {
+         setTimeout(function() {
             $(this).removeAttr('disabled', 'disabled');
             $(this).html('Save');
-       }, 20);
+       }, 2000);
+  		socket.emit('update user', firstname, lastname,	username, password,	imageurl, userid);
   	}
   });
 
