@@ -1,12 +1,10 @@
-body{
-	background-color: #e1e1e1;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-}
+
 
 /* Launcer Icon */
 body > .msg-launcher-container{
 	position: fixed;
 	z-index: 2147483000;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .hide{
 	display: none !important;
